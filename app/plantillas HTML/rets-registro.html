@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+<title>Registro de Servicio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta name="keywords" content="" />
+<meta name="csrf-token" content="dWU9DWv6OQ01R7MGAVEht1T7lBWbFomvJFlqhOUx">
+<link href="public/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+
+<!-- ================== BEGIN BASE CSS STYLE ================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+<link href="public/css/vendor.min.css" rel="stylesheet">
+<link href="public/css/app.min.css" rel="stylesheet">
+<!-- ================== END BASE CSS STYLE ================== -->
+</head>
+<body class="">
+	<!-- BEGIN #app -->
+
+	<div id="app" class="app app-content-full-height app-footer-fixed ">
+
+
+		<!-- BEGIN #sidebar -->
+<div id="sidebar" class="app-sidebar">
+
+    <div class="auth-bg auth-bg-scroll" style="background-image: url(public/images/login-bg.jpg);">
+        <div class="auth-mask"></div>
+    </div>
+
+
+    <!-- BEGIN scrollbar -->
+    <div class="app-sidebar-content" data-scrollbar="true" data-height="100%">
+
+
+        <!-- BEGIN mobile-toggler -->
+        <div class="mobile-toggler">
+            <button type="button" class="menu-toggler" data-dismiss="sidebar-mobile">
+                <span class="mdi mdi-arrow-left"> </span>
+            </button>
+        </div>
+        <!-- END mobile-toggler -->
+
+
+
+        <div class="desktop-toggler">
+            <button type="button" class="menu-toggler" data-toggle="sidebar-minify">
+                <span class="mdi mdi-arrow-left"> </span>
+            </button>
+        </div>
+
+
+        <!-- BEGIN brand -->
+        <div class="brand">
+
+            <a class="brand-logo" href="public" title="IPPE">
+                <img src="public/images/escudo-sonora-blanco.svg" class="logo" alt="IPPE">
+                <h1>Sonora</h1>
+            </a>
+
+        </div>
+        <!-- END brand -->
+
+
+
+
+
+
+
+        <!-- BEGIN menu -->
+        <div class="menu">
+
+            <div class="menu-header"><span class="menu-text">Navegación</span></div>
+                            <div class="menu-item  ">
+                                <a href="/" class="menu-link">
+                                    <span class="menu-icon"><i class="mdi mdi-view-dashboard-variant-outline"></i></span>
+                                    <span class="menu-text">Inicio</span>
+                                    
+                                </a>
+                                
+                            </div>
+                        <div class="menu-divider"></div><div class="menu-header"><span class="menu-text">Ajustes</span></div>
+                            <div class="menu-item has-sub ">
+                                <a href="" class="menu-link">
+                                    <span class="menu-icon"><i class="mdi mdi-database-outline"></i></span>
+                                    <span class="menu-text">Catálogos</span>
+                                    <span class="menu-caret"><b class="caret"></b></span>
+                                </a>
+                                <div class="menu-submenu">
+							<div class="menu-item  ">
+								<a href="/instituciones" class="menu-link"><span class="menu-text">Instituciones</span></a>
+								
+							</div>
+						
+							<div class="menu-item  ">
+								<a href="/tipos-de-instituciones" class="menu-link"><span class="menu-text">Tipos de Instituciones</span></a>
+								
+							</div>
+						</div>
+                            </div>
+                        <div class="menu-divider"></div><div class="menu-header"><span class="menu-text">Administración</span></div>
+                            <div class="menu-item has-sub ">
+                                <a href="" class="menu-link">
+                                    <span class="menu-icon"><i class="mdi mdi-account-group"></i></span>
+                                    <span class="menu-text">Acceso</span>
+                                    <span class="menu-caret"><b class="caret"></b></span>
+                                </a>
+                                <div class="menu-submenu">
+							<div class="menu-item  ">
+								<a href="/usuarios" class="menu-link"><span class="menu-text">Usuarios</span></a>
+								
+							</div>
+						
+							<div class="menu-item  ">
+								<a href="/roles" class="menu-link"><span class="menu-text">Roles</span></a>
+								
+							</div>
+						
+							<div class="menu-item  ">
+								<a href="/permisos" class="menu-link"><span class="menu-text">Permisos</span></a>
+								
+							</div>
+						</div>
+                            </div>
+                        
+                            <div class="menu-item  ">
+                                <a href="/bitacora/" class="menu-link">
+                                    <span class="menu-icon"><i class="mdi mdi-book-clock-outline"></i></span>
+                                    <span class="menu-text">Bitácora</span>
+                                    
+                                </a>
+                                
+                            </div>
+                        <div class="menu-divider"></div><div class="menu-header"><span class="menu-text">Cerrar Sesión</span></div>
+                            <div class="menu-item  ">
+                                <a href="/salir" class="menu-link">
+                                    <span class="menu-icon"><i class="mdi mdi-logout-variant"></i></span>
+                                    <span class="menu-text">Salir del Sistema</span>
+                                    
+                                </a>
+                                
+                            </div>
+                                </div>
+        <!-- END menu -->
+    </div>
+    <!-- END scrollbar -->
+
+    <!-- BEGIN mobile-sidebar-backdrop -->
+    <button class="app-sidebar-mobile-backdrop" data-dismiss="sidebar-mobile"></button>
+    <!-- END mobile-sidebar-backdrop -->
+</div>
+<!-- END #sidebar -->
+
+        <div id="content" class="app-content">
+
+            <div class="container-fluid ">
+
+                <!-- BEGIN #header -->
+<div id="header" class="app-header">
+
+
+    <!-- BEGIN mobile-toggler -->
+    <div class="mobile-toggler">
+        <button type="button" class="menu-toggler" data-toggle="sidebar-mobile">
+            <span class="mdi mdi-menu"></span>
+        </button>
+    </div>
+    <!-- END mobile-toggler -->
+
+
+    <!-- BEGIN menu -->
+    <div class="menu">
+
+        <h3 class="page-header">
+            Registro de Servicio        </h3>
+
+
+        <form class="menu-search" method="POST" name="header_search_form">
+            <div class="menu-search-icon"><i class="mdi mdi-magnify"></i></div>
+            <div class="menu-search-input">
+                <select class="form-control select2Agreements" autocomplete="off" name="agreementsSearch"></select>
+
+
+
+            </div>
+        </form>
+
+        
+
+        <div class="menu-item dropdown ">
+            <a href="#" data-bs-toggle="dropdown" title=" Usuario Verificado " data-bs-display="static" class="menu-link">
+                <div class="menu-img">
+                    <i class="mdi mdi-account-circle-outline"></i>
+                </div>
+
+                <div class="menu-text lh-1">
+
+                   Miguel Romero  <span class="mdi mdi-chevron-down"></span>
+                    <small class="d-block fw-normal">miguel.romero@sonora.gob.mx</small>
+
+                </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border">
+                <a class="dropdown-item d-flex align-items-center" href="public/perfil">
+                    <span class="mdi mdi-account-circle fs-4 me-2 text-pink"></span> Mi perfil
+                </a>
+                <div class="dropdown-divider my-0"></div>
+
+                <a class="dropdown-item d-flex align-items-center" href="public/perfil">
+                    <i class="mdi mdi-face-agent fs-4 me-2 text-pink"></i> Soporte
+                </a>
+                <div class="dropdown-divider my-0"></div>
+
+                
+
+
+                <a class="dropdown-item d-flex align-items-center" href="public/salir"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    <span class="mdi mdi-exit-to-app fs-4 me-2 text-pink"></span> Salir
+                </a>
+
+                <form id="logout-form" action="public/salir" method="POST" class="d-none">
+                    <input type="hidden" name="_token" value="dWU9DWv6OQ01R7MGAVEht1T7lBWbFomvJFlqhOUx">                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END menu -->
+</div>
+<!-- END #header -->
+                <section class="py-3">
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            
+                                    <li class="breadcrumb-item"><a href="public">Inicio</a></li>
+                
+            
+                                    <li class="breadcrumb-item"><a href="public/rets">Registro Estatal de Trámites, Servicios y Programas Sociales</a></li>
+                
+            
+                                    <li class="breadcrumb-item active" aria-current="page">Servicio</li>
+                
+                    </ol>
+    </nav>
+
+
+</section>
+
+
+<section class="py-4">
+        <div class="text-center text-sm-end">
+
+        <button title="Regresar" class="btn btn-default btn-sm me-1"><i
+                    class="fa fa-arrow-left"></i> Regresar
+        </button>
+        <button title="Guardar" class="btn btn-success btn-sm me-1"><i
+                    class="fa fa-save"></i> Guardar
+        </button>
+        <button title="Enviar" class="btn btn-info btn-sm me-1"><i
+                    class="fa fa-paper-plane"></i> Enviar
+        </button>
+
+    </div>
+
+</section>
+
+<section class="">
+    <section class="system-messages">
+
+    <div class="container-fluid">
+        <div>
+                    </div>
+    </div>
+</section>
+
+<section class="system-error-messages">
+
+    
+</section>
+</section>
+
+
+	            
+    <div class="row g-4">
+
+
+        <div label="Clasificación de registro" class="col-sm-2" ng-reflect-label="Clasificación de registro">
+            <div class="form-group">
+                <label for="txtName" class="form-label ng-star-inserted">
+                    Clasificación
+                </label>
+                <div>
+                    <input type="text" readonly="" value="Servicio" class="form-control ">
+                </div>
+            </div>
+        </div>
+
+        <div label="Trámite de tipo" class="col-sm-2"
+             ng-reflect-label="Trámite de tipo">
+            <div class="form-group"><label
+                        for="txtName"
+                        class="form-label ng-star-inserted">Trámite de tipo </label>
+                <div><input type="text"
+                            value="Estatal" readonly=""
+                            class="form-control "></div>
+            </div>
+        </div>
+
+
+        <div label="Dependencia o Entidad" class="col-sm-3"
+             ng-reflect-label="Dependencia o Entidad">
+            <div class="form-group"><label
+                        for="txtName"
+                        class="form-label ng-star-inserted">Dependencia
+                    o Entidad </label>
+                <div><input type="text" readonly value="Secretaría de la Contraloría General"
+                            class="form-control "></div>
+            </div>
+        </div>
+
+        <div label="Unidad Administrativa" class="col-sm-3"
+             ng-reflect-label="Unidad Administrativa">
+            <div class="form-group"><label
+                        for="txtName"
+                        class="form-label ng-star-inserted">Unidad
+                    Administrativa </label>
+                <div><input type="text" readonly value="Subsecretaría de Desarrollo Administrativo y Tecnológico"
+                            class="form-control "></div>
+            </div>
+        </div>
+
+        <div label="Homoclave" class="col-sm-2"
+             ng-reflect-label="Homoclave">
+            <div class="form-group"><label
+                        for="txtName"
+                        class="form-label ng-star-inserted">Homoclave
+                </label>
+                <div><input type="text" readonly value="HASDASDJJASJDASDASD-DDAS"
+                            class="form-control "></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row mt-4 g-4">
+        <div class="col-12 col-sm-3">
+
+
+            <div class="customTabBS">
+                <ul class="nav nav-tabs flex-column" id="tabsRegistro" role="tablist">
+
+
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="uno-tab" data-bs-toggle="tab" data-bs-target="#uno-tab-pane"
+                           type="button" role="tab" aria-controls="uno-tab-pane" aria-selected="true" aria-current="page"
+                           href="#">¿En qué consiste?</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="dos-tab" data-bs-toggle="tab" data-bs-target="#dos-tab-pane" type="button"
+                           role="tab" aria-controls="dos-tab-pane" aria-selected="true" href="#">¿Qué se requiere?</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tres-tab" data-bs-toggle="tab" data-bs-target="#tres-tab-pane" type="button"
+                           role="tab" aria-controls="tres-tab-pane" aria-selected="true" href="#">Costo y lugares de
+                            pago</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="cuatro-tab" data-bs-toggle="tab" data-bs-target="#cuatro-tab-pane"
+                           type="button" role="tab" aria-controls="cuatro-tab-pane" aria-selected="true" href="#">¿Cómo y
+                            dónde se realiza?</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="cinco-tab" data-bs-toggle="tab" data-bs-target="#cinco-tab-pane"
+                           type="button" role="tab" aria-controls="cinco-tab-pane" aria-selected="true" href="#">Plazos y
+                            criterios de resolución</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="seis-tab" data-bs-toggle="tab" data-bs-target="#seis-tab-pane" type="button"
+                           role="tab" aria-controls="seis-tab-pane" aria-selected="true" href="#">Inspección y
+                            verificación</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="siete-tab" data-bs-toggle="tab" data-bs-target="#siete-tab-pane"
+                           type="button" role="tab" aria-controls="siete-tab-pane" aria-selected="true" href="#">Fundamento
+                            jurídico</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="ocho-tab" data-bs-toggle="tab" data-bs-target="#ocho-tab-pane" type="button"
+                           role="tab" aria-controls="ocho-tab-pane" aria-selected="true" href="#">Observaciones</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+
+        <div class="col-12 col-sm-9">
+
+
+            <div class="tab-content" id="tabContent">
+
+
+                <div class="tab-pane fade show active" id="uno-tab-pane" role="tabpanel" aria-labelledby="uno-tab" tabindex="0">
+                    <app-new-register-consistof
+                            class="ng-star-inserted">
+                        <form novalidate=""
+                              class="ng-pristine ng-invalid ng-touched">
+                            <div class="container">
+                                <div class="row g-3 align-items-right">
+                                    <h2 class="text-primary fw-700">¿En qué consiste?</h2>
+
+
+
+                                    <div label="Nombre" class="col-12"
+                                         ng-reflect-label="Nombre"
+                                         ng-reflect-tooltip="El nombre oficial será como se">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Nombre <span
+
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="text" pinputtext=""
+                                                        formcontrolname="oficialName"
+                                                        required=""
+                                                        class="form-control"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="oficialName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div label="Nombre ciudadano" class="col-12"
+                                         ng-reflect-label="Nombre ciudadano"
+                                         ng-reflect-tooltip="Nombre corto como es identific">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Nombre ciudadano <span
+
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="text" pinputtext=""
+                                                        formcontrolname="citizenName"
+                                                        required=""
+                                                        class="form-control"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="citizenName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div label="Descripción" class="col-12"
+                                         ng-reflect-label="Descripción"
+                                         ng-reflect-tooltip="Especificar en forma detallada">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Descripción <span
+
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="text" pinputtext=""
+                                                        formcontrolname="description"
+                                                        required=""
+                                                        class="form-control"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="description">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div label="Beneficio" class="col-12"
+                                         ng-reflect-label="Beneficio"
+                                         ng-reflect-tooltip="Aprovechamiento de cumplimient">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Beneficio <span
+
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="text" pinputtext=""
+                                                        formcontrolname="benefit"
+                                                        required=""
+                                                        class="form-control"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="benefit">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                            label="¿Cuál es el resolutivo que obtendrá el ciudadano?"
+                                            class="col-l2"
+                                            ng-reflect-label="¿Cuál es el resolutivo que obt"
+                                            ng-reflect-tooltip="Documento otorgado al ciudadan">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">¿Cuál es el resolutivo que
+                                                obtendrá el ciudadano? <span
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="text"
+                                                        formcontrolname="decisive"
+                                                        required=""
+                                                        class="form-control ng-untouched ng-pristine ng-invalid"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="decisive">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                            label="¿En que momento se deberá o se podrá solicitar?"
+                                            class="col-12"
+                                            ng-reflect-label="¿En que momento se deberá o se"
+                                            ng-reflect-tooltip="Especificar si el servicio se ">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">¿En que momento se deberá o
+                                                se podrá solicitar? <span
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="text" pinputtext=""
+                                                        formcontrolname="momentOfApply"
+                                                        required=""
+                                                        class="form-control"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="momentOfApply">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6"
+                                    >
+                                        <div class="form-group">
+                                            <div><p
+                                                        class="form-label">Puede ser
+                                                    solicitado por:<span
+                                                            class="text-danger"> *</span></p>
+                                                <app-select descriptionfield="name"
+                                                            keyfield="name" placeholder="Seleccione tipo de persona"
+                                                            _nghost-ng-c3868783949=""
+                                                            ng-reflect-description-field="name"
+                                                            ng-reflect-key-field="name"
+                                                            ng-reflect-placeholder="Seleccione tipo de persona"
+                                                            ng-reflect-items="[object Object],[object Object"
+                                                            ng-reflect-allow-filter="false">
+                                                    <div _ngcontent-ng-c3868783949="" class="select-wrapper">
+                                                        <p-dropdown _ngcontent-ng-c3868783949="" appendto="body"
+                                                                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                                                                    ng-reflect-append-to="body"
+                                                                    ng-reflect-options="[object Object],[object Object"
+                                                                    ng-reflect-option-label="name"
+                                                                    ng-reflect-filter="false"
+                                                                    ng-reflect-filter-by="name"
+                                                                    ng-reflect-show-clear="true"
+                                                                    ng-reflect-placeholder="Seleccione tipo de persona">
+                                                            <div
+                                                                    ng-reflect-ng-style="[object Object]" id="pn_id_12"
+                                                                    class="p-dropdown p-component p-inputwrapper p-dropdown-clearable"
+                                                                    style="width: 100%;"><span role="combobox"
+                                                                                               pautofocus=""
+                                                                                               class="p-element p-dropdown-label p-inputtext p-placeholder ng-star-inserted"
+
+                                                                                               ng-reflect-content=""
+                                                                                               ng-reflect-tooltip-position="right"
+                                                                                               ng-reflect-position-style="absolute"
+                                                                                               aria-disabled="false"
+                                                                                               aria-label="Seleccione tipo de persona"
+                                                                                               aria-haspopup="listbox"
+                                                                                               aria-controls="pn_id_12_list"
+                                                                                               tabindex="0"><span
+                                                                            class="ng-star-inserted">Seleccione tipo de persona</span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--></span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+                                                                <div role="button" aria-label="dropdown trigger"
+                                                                     aria-haspopup="listbox"
+                                                                     class="p-dropdown-trigger"
+                                                                     data-pc-section="trigger"><!--bindings={}-->
+                                                                    <chevrondownicon
+                                                                            class="p-element p-icon-wrapper ng-star-inserted"
+                                                                            ng-reflect-style-class="p-dropdown-trigger-icon">
+                                                                        <svg width="14" height="14"
+                                                                             viewBox="0 0 14 14" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg"
+                                                                             class="p-dropdown-trigger-icon p-icon"
+                                                                             aria-hidden="true">
+                                                                            <path d="M7.01744 10.398C6.91269 10.3985 6.8089 10.378 6.71215 10.3379C6.61541 10.2977 6.52766 10.2386 6.45405 10.1641L1.13907 4.84913C1.03306 4.69404 0.985221 4.5065 1.00399 4.31958C1.02276 4.13266 1.10693 3.95838 1.24166 3.82747C1.37639 3.69655 1.55301 3.61742 1.74039 3.60402C1.92777 3.59062 2.11386 3.64382 2.26584 3.75424L7.01744 8.47394L11.769 3.75424C11.9189 3.65709 12.097 3.61306 12.2748 3.62921C12.4527 3.64535 12.6199 3.72073 12.7498 3.84328C12.8797 3.96582 12.9647 4.12842 12.9912 4.30502C13.0177 4.48162 12.9841 4.662 12.8958 4.81724L7.58083 10.1322C7.50996 10.2125 7.42344 10.2775 7.32656 10.3232C7.22968 10.3689 7.12449 10.3944 7.01744 10.398Z"
+                                                                                  fill="currentColor"></path>
+                                                                        </svg>
+                                                                    </chevrondownicon><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--></div>
+                                                                <p-overlay
+                                                                        class="p-element ng-tns-c3177733119-1 ng-star-inserted"
+                                                                        ng-reflect-target=""
+                                                                        ng-reflect-append-to="body"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></p-overlay>
+                                                            </div>
+                                                        </p-dropdown>
+                                                    </div>
+                                                </app-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6"
+                                    >
+                                        <div class="form-group">
+                                            <div><p
+                                                        class="form-label">Sector económico
+                                                    al que pertenece<span
+                                                            class="text-danger"> *</span></p>
+                                                <app-select keyfield="id"
+                                                            descriptionfield="name"
+                                                            placeholder="Seleccione sector económico"
+                                                            _nghost-ng-c3868783949="" ng-reflect-key-field="id"
+                                                            ng-reflect-description-field="name"
+                                                            ng-reflect-placeholder="Seleccione sector económico"
+                                                            ng-reflect-items="[object Object],[object Object">
+                                                    <div _ngcontent-ng-c3868783949="" class="select-wrapper">
+                                                        <p-dropdown _ngcontent-ng-c3868783949="" appendto="body"
+                                                                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                                                                    ng-reflect-append-to="body"
+                                                                    ng-reflect-options="[object Object],[object Object"
+                                                                    ng-reflect-option-label="name"
+                                                                    ng-reflect-filter="true"
+                                                                    ng-reflect-filter-by="name"
+                                                                    ng-reflect-show-clear="true"
+                                                                    ng-reflect-placeholder="Seleccione sector económico">
+                                                            <div
+                                                                    ng-reflect-ng-style="[object Object]" id="pn_id_14"
+                                                                    class="p-dropdown p-component p-inputwrapper p-dropdown-clearable"
+                                                                    style="width: 100%;"><span role="combobox"
+                                                                                               pautofocus=""
+                                                                                               class="p-element p-dropdown-label p-inputtext p-placeholder ng-star-inserted"
+
+                                                                                               ng-reflect-content=""
+                                                                                               ng-reflect-tooltip-position="right"
+                                                                                               ng-reflect-position-style="absolute"
+                                                                                               aria-disabled="false"
+                                                                                               aria-label="Seleccione sector económico"
+                                                                                               aria-haspopup="listbox"
+                                                                                               aria-controls="pn_id_14_list"
+                                                                                               tabindex="0"><span
+                                                                            class="ng-star-inserted">Seleccione sector económico</span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-template-outlet": "[object Object]"
+}--></span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+                                                                <div role="button" aria-label="dropdown trigger"
+                                                                     aria-haspopup="listbox"
+                                                                     class="p-dropdown-trigger"
+                                                                     data-pc-section="trigger"><!--bindings={}-->
+                                                                    <chevrondownicon
+                                                                            class="p-element p-icon-wrapper ng-star-inserted"
+                                                                            ng-reflect-style-class="p-dropdown-trigger-icon">
+                                                                        <svg width="14" height="14"
+                                                                             viewBox="0 0 14 14" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg"
+                                                                             class="p-dropdown-trigger-icon p-icon"
+                                                                             aria-hidden="true">
+                                                                            <path d="M7.01744 10.398C6.91269 10.3985 6.8089 10.378 6.71215 10.3379C6.61541 10.2977 6.52766 10.2386 6.45405 10.1641L1.13907 4.84913C1.03306 4.69404 0.985221 4.5065 1.00399 4.31958C1.02276 4.13266 1.10693 3.95838 1.24166 3.82747C1.37639 3.69655 1.55301 3.61742 1.74039 3.60402C1.92777 3.59062 2.11386 3.64382 2.26584 3.75424L7.01744 8.47394L11.769 3.75424C11.9189 3.65709 12.097 3.61306 12.2748 3.62921C12.4527 3.64535 12.6199 3.72073 12.7498 3.84328C12.8797 3.96582 12.9647 4.12842 12.9912 4.30502C13.0177 4.48162 12.9841 4.662 12.8958 4.81724L7.58083 10.1322C7.50996 10.2125 7.42344 10.2775 7.32656 10.3232C7.22968 10.3689 7.12449 10.3944 7.01744 10.398Z"
+                                                                                  fill="currentColor"></path>
+                                                                        </svg>
+                                                                    </chevrondownicon><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--></div>
+                                                                <p-overlay
+                                                                        class="p-element ng-tns-c3177733119-2 ng-star-inserted"
+                                                                        ng-reflect-target=""
+                                                                        ng-reflect-append-to="body"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></p-overlay>
+                                                            </div>
+                                                        </p-dropdown>
+                                                    </div>
+                                                </app-select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div label="Palabras clave" class="col-12"
+                                         ng-reflect-label="Palabras clave"
+                                         ng-reflect-tooltip="Se deberan capturar las palabr">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Palabras clave <span
+
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div>
+                                                <p-chips separator=","
+                                                         formcontrolname="tagsNames" required=""
+                                                         class="p-element p-inputwrapper ng-untouched ng-pristine ng-invalid"
+                                                         ng-reflect-separator="," ng-reflect-required=""
+                                                         ng-reflect-name="tagsNames">
+                                                    <div data-pc-name="chips"
+                                                         data-pc-section="root"
+                                                         class="p-chips p-component p-input-wrapper">
+                                                        <ul tabindex="-1" role="listbox"
+
+                                                            aria-orientation="horizontal"
+                                                            data-pc-section="container"
+                                                            class="p-inputtext p-chips-multiple-container"><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}-->
+                                                            <li role="option" class="p-chips-input-token"
+
+                                                                data-pc-section="inputToken"><input type="text">
+                                                            </li><!--bindings={}--></ul>
+                                                    </div>
+                                                </p-chips>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div label="Frecuencia anual"
+                                         class="col-12 col-sm-6"
+                                         ng-reflect-label="Frecuencia anual"
+                                         ng-reflect-tooltip="Informar el número total de la">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Frecuencia anual <span
+
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="number"
+                                                        formcontrolname="annualFrequency"
+                                                        required=""
+                                                        class="form-control ng-untouched ng-pristine ng-invalid"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="annualFrequency">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                            label="Número de servidores públcos involucrados"
+                                            class="col-12 col-sm-6"
+                                            ng-reflect-label="Número de servidores públcos i"
+                                            ng-reflect-tooltip="Cantidad de personal involucra">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Número de servidores públcos
+                                                involucrados <span
+                                                        class="text-danger ng-star-inserted">* </span>
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div><input
+                                                        type="number"
+                                                        formcontrolname="publicServerNumber"
+                                                        required=""
+                                                        class="form-control ng-untouched ng-pristine ng-invalid"
+                                                        ng-reflect-required=""
+                                                        ng-reflect-name="publicServerNumber">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ng-star-inserted">
+                                        <div class="col-12"
+                                        >
+                                            <div class="form-group">
+                                                <div><h5>
+                                                        Población objetivo del servicio </h5>
+                                                    <div class="row">
+                                                        <div
+                                                                class="col-12 col-sm-6"
+                                                        >
+                                                            <div class="form-group">
+
+                                                                <div><p
+
+                                                                            class="form-label">Género<span
+
+                                                                                class="text-danger"> *</span></p>
+                                                                    <div
+                                                                            class="input-group">
+                                                                        <div
+                                                                                class="form-check me-5"><input
+
+                                                                                    type="radio" id="hombre"
+                                                                                    class="form-check-input"
+                                                                                    required=""><label
+
+                                                                                    for="hombre"
+                                                                                    class="form-check-label">Hombre</label>
+                                                                        </div>
+                                                                        <div
+                                                                                class="form-check me-5"><input
+
+                                                                                    type="radio" id="mujer"
+                                                                                    class="form-check-input"
+                                                                                    required=""><label
+
+                                                                                    for="mujer"
+                                                                                    class="form-check-label">Mujer</label>
+                                                                        </div>
+                                                                        <div
+                                                                                class="form-check"><input
+
+                                                                                    type="radio" id="indistinto"
+                                                                                    class="form-check-input"
+                                                                                    required=""><label
+
+                                                                                    for="indistinto"
+                                                                                    class="form-check-label">Indistinto</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                                class="col-12 col-sm-6"
+                                                        >
+                                                            <div class="form-group">
+
+                                                                <div><p
+
+                                                                            class="form-label">Edad<span
+
+                                                                                class="text-danger"> *</span></p>
+                                                                    <div
+                                                                            class="input-group"><span
+
+                                                                                class="input-group-text bg-white">De</span><input
+
+                                                                                type="number"
+                                                                                formcontrolname="ageFrom" min="0"
+                                                                                max="120"
+                                                                                class="form-control ng-untouched ng-pristine ng-valid"
+                                                                                ng-reflect-min="0"
+                                                                                ng-reflect-max="120"
+                                                                                ng-reflect-name="ageFrom"><span
+
+                                                                                class="input-group-text bg-white"> a </span><input
+
+                                                                                type="number"
+                                                                                formcontrolname="ageTo" min="0"
+                                                                                max="120"
+                                                                                class="form-control ng-untouched ng-pristine ng-valid"
+                                                                                ng-reflect-min="0"
+                                                                                ng-reflect-max="120"
+                                                                                ng-reflect-name="ageTo"><span
+
+                                                                                class="input-group-text bg-white"><div
+
+                                                                                    class="form-check form-check-inline me-1"><input
+
+                                                                                        type="checkbox"
+                                                                                        id="isAgeIndistinct"
+                                                                                        class="form-check-input"><label
+
+                                                                                        for="isAgeIndistinct"
+                                                                                        class="form-check-label">Indistinto</label></div></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12"
+                                                        >
+                                                            <div class="form-group">
+
+                                                                <div><p
+
+                                                                            class="form-label">Población
+                                                                        objetivo<span
+                                                                                class="text-danger"> *</span>
+                                                                    </p>
+                                                                    <p-multiselect
+                                                                            formcontrolname="targetPopulationsIds"
+                                                                            optionlabel="name" display="chip"
+                                                                            datakey="id"
+                                                                            placeholder="Selecciona la Población objetivo"
+                                                                            class="p-element p-inputwrapper ng-pristine ng-valid ng-touched"
+                                                                            ng-reflect-option-label="name"
+                                                                            ng-reflect-display="chip"
+                                                                            ng-reflect-data-key="id"
+                                                                            ng-reflect-placeholder="Selecciona la Población objeti"
+                                                                            ng-reflect-name="targetPopulationsIds"
+                                                                            ng-reflect-options="[object Object],[object Object">
+                                                                        <div
+                                                                                id="pn_id_5"
+                                                                                class="p-multiselect p-component p-inputwrapper p-multiselect-chip">
+                                                                            <div class="p-hidden-accessible"
+                                                                                 data-p-hidden-accessible="true">
+                                                                                <input role="combobox"
+                                                                                       class="p-element"
+                                                                                       ng-reflect-content=""
+                                                                                       ng-reflect-tooltip-position="right"
+                                                                                       ng-reflect-position-style="absolute"
+                                                                                       aria-disabled="false"
+                                                                                       aria-haspopup="listbox"
+                                                                                       aria-controls="pn_id_5_list"
+                                                                                       tabindex="0"
+                                                                                       aria-expanded="false">
+                                                                            </div>
+                                                                            <div class="p-element p-multiselect-label-container"
+                                                                                 ng-reflect-content=""
+                                                                                 ng-reflect-tooltip-position="right"
+                                                                                 ng-reflect-position-style="absolute">
+                                                                                <div
+                                                                                        class="p-multiselect-label p-placeholder"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--><!--bindings={
+  "ng-reflect-ng-for-of": null
+}-->Selecciona la Población objetivo<!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={
+  "ng-reflect-ng-template-outlet-context": "[object Object]"
+}--></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div>
+                                                                            <div class="p-multiselect-trigger">
+                                                                                <!--bindings={}-->
+                                                                                <chevrondownicon
+                                                                                        class="p-element p-icon-wrapper ng-star-inserted"
+                                                                                        ng-reflect-style-class="p-multiselect-trigger-icon"
+                                                                                        data-pc-section="triggericon"
+                                                                                        aria-hidden="true">
+                                                                                    <svg width="14" height="14"
+                                                                                         viewBox="0 0 14 14"
+                                                                                         fill="none"
+                                                                                         xmlns="http://www.w3.org/2000/svg"
+                                                                                         class="p-icon p-multiselect-trigger-icon"
+                                                                                         aria-hidden="true">
+                                                                                        <path d="M7.01744 10.398C6.91269 10.3985 6.8089 10.378 6.71215 10.3379C6.61541 10.2977 6.52766 10.2386 6.45405 10.1641L1.13907 4.84913C1.03306 4.69404 0.985221 4.5065 1.00399 4.31958C1.02276 4.13266 1.10693 3.95838 1.24166 3.82747C1.37639 3.69655 1.55301 3.61742 1.74039 3.60402C1.92777 3.59062 2.11386 3.64382 2.26584 3.75424L7.01744 8.47394L11.769 3.75424C11.9189 3.65709 12.097 3.61306 12.2748 3.62921C12.4527 3.64535 12.6199 3.72073 12.7498 3.84328C12.8797 3.96582 12.9647 4.12842 12.9912 4.30502C13.0177 4.48162 12.9841 4.662 12.8958 4.81724L7.58083 10.1322C7.50996 10.2125 7.42344 10.2775 7.32656 10.3232C7.22968 10.3689 7.12449 10.3944 7.01744 10.398Z"
+                                                                                              fill="currentColor"></path>
+                                                                                    </svg>
+                                                                                </chevrondownicon><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--></div>
+                                                                            <p-overlay
+                                                                                    class="p-element ng-tns-c3177733119-3 ng-star-inserted"
+                                                                                    ng-reflect-target=""
+                                                                                    ng-reflect-visible="false"><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></p-overlay>
+                                                                        </div>
+                                                                    </p-multiselect>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}-->
+                                    <div label="Servidor público responsable"
+
+                                         ng-reflect-label="Servidor público responsable"
+                                         ng-reflect-tooltip=" Indicar los datos de la perso">
+                                        <div class="form-group"><label
+                                                    for="txtName"
+                                                    class="form-label ng-star-inserted">Servidor público responsable
+                                                <i pbutton=""
+                                                   tooltipposition="right"
+                                                   tooltipstyleclass="w-500px"
+                                                   class="p-element mdi mdi-help-circle text-info fs-5 ng-star-inserted"
+                                                   ng-reflect-tooltip-position="right"
+                                                   ng-reflect-tooltip-style-class="w-500px"
+                                                   ng-reflect-content="[object Object]"></i>
+                                            </label>
+
+                                            <div>
+                                                <div class="col-12 text-end py-2">
+                                                    <button title="Agregar Servidor"
+                                                            class="btn btn-success btn-sm me-1"><i
+                                                                class="fa fa-plus"></i>
+                                                        Agregar
+                                                    </button>
+                                                </div>
+                                                <p-table datakey="uuid"
+                                                         currentpagereporttemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+                                                         styleclass="p-datatable-gridlines p-datatable-striped"
+                                                         selectionmode="single" required="" class="p-element"
+                                                         ng-reflect-data-key="uuid"
+                                                         ng-reflect-current-page-report-template="Mostrando {first} a {last} de "
+                                                         ng-reflect-style-class="p-datatable-gridlines p-datata"
+                                                         ng-reflect-selection-mode="single" ng-reflect-value=""
+                                                         ng-reflect-lazy="true"
+                                                         ng-reflect-show-current-page-report="true"
+                                                         ng-reflect-paginator="true" ng-reflect-row-hover="true"
+                                                         ng-reflect-total-records="0">
+                                                    <div id="pn_id_2"
+                                                         class="p-datatable-gridlines p-datatable-striped p-datatable p-component p-datatable-hoverable-rows">
+                                                        <!--bindings={}--><!--bindings={}--><!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+                                                        <div class="p-datatable-wrapper"
+                                                             ng-reflect-ng-style="[object Object]">
+                                                            <!--bindings={}-->
+                                                            <table role="table"
+
+                                                                   id="pn_id_2-table"
+                                                                   class="p-datatable-table ng-star-inserted"><!--bindings={
+  "ng-reflect-ng-template-outlet-context": "[object Object]"
+}-->
+                                                                <thead role="rowgroup" class="p-datatable-thead">
+                                                                <tr
+                                                                        class="ng-star-inserted">
+                                                                    <th
+                                                                            style="width: 1rem;"></th>
+                                                                    <th>Nombre
+                                                                        completo
+                                                                    </th>
+                                                                    <th>Puesto</th>
+                                                                    <th>Teléfono</th>
+                                                                    <th>Extensión</th>
+                                                                    <th>Correo
+                                                                        electrónico
+                                                                    </th>
+                                                                </tr><!--bindings={
+  "ng-reflect-ng-template-outlet-context": "[object Object]"
+}--></thead><!--bindings={}-->
+                                                                <tbody role="rowgroup"
+                                                                       class="p-element p-datatable-tbody"
+                                                                       ng-reflect-value=""
+                                                                       ng-reflect-template="[object Object]"
+                                                                       ng-reflect-scroller-options="[object Object]"><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--><!--bindings={}--><!--bindings={}--><!--bindings={
+  "ng-reflect-ng-template-outlet-context": "[object Object]"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></tbody><!--bindings={}--><!--bindings={}--></table><!--bindings={
+  "ng-reflect-ng-template-outlet-context": "[object Object]"
+}--><!--ng-container--><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></div>
+                                                        <p-paginator styleclass="p-paginator-bottom"
+                                                                     class="p-element ng-star-inserted"
+                                                                     ng-reflect-first="0"
+                                                                     ng-reflect-total-records="0"
+                                                                     ng-reflect-page-link-size="5"
+                                                                     ng-reflect-always-show="true"
+                                                                     ng-reflect-dropdown-scroll-height="200px"
+                                                                     ng-reflect-current-page-report-template="Mostrando {first} a {last} de "
+                                                                     ng-reflect-show-first-last-icon="true"
+                                                                     ng-reflect-show-current-page-report="true"
+                                                                     ng-reflect-show-page-links="true">
+                                                            <div ng-reflect-ng-class="p-paginator p-component"
+                                                                 data-pc-section="root"
+                                                                 class="p-paginator p-component ng-star-inserted">
+                                                                <!--bindings={}--><span
+                                                                        class="p-paginator-current ng-star-inserted">Mostrando 0 a NaN de 0 entradas</span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}-->
+                                                                <button type="button" pripple=""
+                                                                        class="p-ripple p-element p-paginator-first p-paginator-element p-link ng-star-inserted"
+
+                                                                        aria-label="First Page">
+                                                                    <angledoublelefticon
+                                                                            class="p-element p-icon-wrapper ng-star-inserted"
+                                                                            ng-reflect-style-class="p-paginator-icon">
+                                                                        <svg width="14" height="14"
+                                                                             viewBox="0 0 14 14" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg"
+                                                                             class="p-icon p-paginator-icon"
+                                                                             aria-hidden="true">
+                                                                            <path fill-rule="evenodd"
+                                                                                  clip-rule="evenodd"
+                                                                                  d="M5.71602 11.164C5.80782 11.2021 5.9063 11.2215 6.00569 11.221C6.20216 11.2301 6.39427 11.1612 6.54025 11.0294C6.68191 10.8875 6.76148 10.6953 6.76148 10.4948C6.76148 10.2943 6.68191 10.1021 6.54025 9.96024L3.51441 6.9344L6.54025 3.90855C6.624 3.76126 6.65587 3.59011 6.63076 3.42254C6.60564 3.25498 6.525 3.10069 6.40175 2.98442C6.2785 2.86815 6.11978 2.79662 5.95104 2.7813C5.78229 2.76598 5.61329 2.80776 5.47112 2.89994L1.97123 6.39983C1.82957 6.54167 1.75 6.73393 1.75 6.9344C1.75 7.13486 1.82957 7.32712 1.97123 7.46896L5.47112 10.9991C5.54096 11.0698 5.62422 11.1259 5.71602 11.164ZM11.0488 10.9689C11.1775 11.1156 11.3585 11.2061 11.5531 11.221C11.7477 11.2061 11.9288 11.1156 12.0574 10.9689C12.1815 10.8302 12.25 10.6506 12.25 10.4645C12.25 10.2785 12.1815 10.0989 12.0574 9.96024L9.03158 6.93439L12.0574 3.90855C12.1248 3.76739 12.1468 3.60881 12.1204 3.45463C12.0939 3.30045 12.0203 3.15826 11.9097 3.04765C11.7991 2.93703 11.6569 2.86343 11.5027 2.83698C11.3486 2.81053 11.19 2.83252 11.0488 2.89994L7.51865 6.36957C7.37699 6.51141 7.29742 6.70367 7.29742 6.90414C7.29742 7.1046 7.37699 7.29686 7.51865 7.4387L11.0488 10.9689Z"
+                                                                                  fill="currentColor"></path>
+                                                                        </svg>
+                                                                    </angledoublelefticon><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--></button><!--bindings={
+  "ng-reflect-ng-if": "true"
+}-->
+                                                                <button type="button" pripple=""
+                                                                        class="p-ripple p-element p-paginator-prev p-paginator-element p-link"
+
+                                                                        aria-label="Previous Page">
+                                                                    <anglelefticon
+                                                                            class="p-element p-icon-wrapper ng-star-inserted"
+                                                                            ng-reflect-style-class="p-paginator-icon">
+                                                                        <svg width="14" height="14"
+                                                                             viewBox="0 0 14 14" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg"
+                                                                             class="p-icon p-paginator-icon"
+                                                                             aria-hidden="true">
+                                                                            <path d="M8.75 11.185C8.65146 11.1854 8.55381 11.1662 8.4628 11.1284C8.37179 11.0906 8.28924 11.0351 8.22 10.965L4.72 7.46496C4.57955 7.32433 4.50066 7.13371 4.50066 6.93496C4.50066 6.73621 4.57955 6.54558 4.72 6.40496L8.22 2.93496C8.36095 2.84357 8.52851 2.80215 8.69582 2.81733C8.86312 2.83252 9.02048 2.90344 9.14268 3.01872C9.26487 3.134 9.34483 3.28696 9.36973 3.4531C9.39463 3.61924 9.36303 3.78892 9.28 3.93496L6.28 6.93496L9.28 9.93496C9.42045 10.0756 9.49934 10.2662 9.49934 10.465C9.49934 10.6637 9.42045 10.8543 9.28 10.995C9.13526 11.1257 8.9448 11.1939 8.75 11.185Z"
+                                                                                  fill="currentColor"></path>
+                                                                        </svg>
+                                                                    </anglelefticon><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--></button>
+                                                                <span class="p-paginator-pages ng-star-inserted"><!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--></span><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}-->
+                                                                <button type="button" pripple=""
+                                                                        class="p-ripple p-element p-paginator-next p-paginator-element p-link"
+
+                                                                        aria-label="Next Page">
+                                                                    <anglerighticon
+                                                                            class="p-element p-icon-wrapper ng-star-inserted"
+                                                                            ng-reflect-style-class="p-paginator-icon">
+                                                                        <svg width="14" height="14"
+                                                                             viewBox="0 0 14 14" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg"
+                                                                             class="p-icon p-paginator-icon"
+                                                                             aria-hidden="true">
+                                                                            <path d="M5.25 11.1728C5.14929 11.1694 5.05033 11.1455 4.9592 11.1025C4.86806 11.0595 4.78666 10.9984 4.72 10.9228C4.57955 10.7822 4.50066 10.5916 4.50066 10.3928C4.50066 10.1941 4.57955 10.0035 4.72 9.86283L7.72 6.86283L4.72 3.86283C4.66067 3.71882 4.64765 3.55991 4.68275 3.40816C4.71785 3.25642 4.79932 3.11936 4.91585 3.01602C5.03238 2.91268 5.17819 2.84819 5.33305 2.83149C5.4879 2.81479 5.64411 2.84671 5.78 2.92283L9.28 6.42283C9.42045 6.56346 9.49934 6.75408 9.49934 6.95283C9.49934 7.15158 9.42045 7.34221 9.28 7.48283L5.78 10.9228C5.71333 10.9984 5.63193 11.0595 5.5408 11.1025C5.44966 11.1455 5.35071 11.1694 5.25 11.1728Z"
+                                                                                  fill="currentColor"></path>
+                                                                        </svg>
+                                                                    </anglerighticon><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--></button>
+                                                                <button type="button" pripple=""
+                                                                        class="p-ripple p-element p-paginator-last p-paginator-element p-link ng-star-inserted"
+
+                                                                        aria-label="Last Page">
+                                                                    <angledoublerighticon
+                                                                            class="p-element p-icon-wrapper ng-star-inserted"
+                                                                            ng-reflect-style-class="p-paginator-icon">
+                                                                        <svg width="14" height="14"
+                                                                             viewBox="0 0 14 14" fill="none"
+                                                                             xmlns="http://www.w3.org/2000/svg"
+                                                                             class="p-icon p-paginator-icon"
+                                                                             aria-hidden="true">
+                                                                            <path fill-rule="evenodd"
+                                                                                  clip-rule="evenodd"
+                                                                                  d="M7.68757 11.1451C7.7791 11.1831 7.8773 11.2024 7.9764 11.2019C8.07769 11.1985 8.17721 11.1745 8.26886 11.1312C8.36052 11.088 8.44238 11.0265 8.50943 10.9505L12.0294 7.49085C12.1707 7.34942 12.25 7.15771 12.25 6.95782C12.25 6.75794 12.1707 6.56622 12.0294 6.42479L8.50943 2.90479C8.37014 2.82159 8.20774 2.78551 8.04633 2.80192C7.88491 2.81833 7.73309 2.88635 7.6134 2.99588C7.4937 3.10541 7.41252 3.25061 7.38189 3.40994C7.35126 3.56927 7.37282 3.73423 7.44337 3.88033L10.4605 6.89748L7.44337 9.91463C7.30212 10.0561 7.22278 10.2478 7.22278 10.4477C7.22278 10.6475 7.30212 10.8393 7.44337 10.9807C7.51301 11.0512 7.59603 11.1071 7.68757 11.1451ZM1.94207 10.9505C2.07037 11.0968 2.25089 11.1871 2.44493 11.2019C2.63898 11.1871 2.81949 11.0968 2.94779 10.9505L6.46779 7.49085C6.60905 7.34942 6.68839 7.15771 6.68839 6.95782C6.68839 6.75793 6.60905 6.56622 6.46779 6.42479L2.94779 2.90479C2.80704 2.83757 2.6489 2.81563 2.49517 2.84201C2.34143 2.86839 2.19965 2.94178 2.08936 3.05207C1.97906 3.16237 1.90567 3.30415 1.8793 3.45788C1.85292 3.61162 1.87485 3.76975 1.94207 3.9105L4.95922 6.92765L1.94207 9.9448C1.81838 10.0831 1.75 10.2621 1.75 10.4477C1.75 10.6332 1.81838 10.8122 1.94207 10.9505Z"
+                                                                                  fill="currentColor"></path>
+                                                                        </svg>
+                                                                    </angledoublerighticon><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--></button><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--><!--bindings={}--><!--bindings={}--></div><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--></p-paginator><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><!--bindings={}--><!--bindings={}--><!--bindings={}--><!--bindings={}--></div>
+                                                </p-table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button"
+                                        class="btn ms-auto w-auto m-auto float-end btn-success"
+                                        ng-reflect-ng-class="btn-success"> Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </app-new-register-consistof>
+                </div>
+
+
+                <div class="tab-pane fade" id="dos-tab-pane" role="tabpanel" aria-labelledby="dos-tab" tabindex="0">
+                    aqui va el segundo
+                </div>
+
+                <div class="tab-pane fade" id="tres-tab-pane" role="tabpanel" aria-labelledby="tres-tab" tabindex="0">
+                    aqui va el tercero
+                </div>
+
+                <div class="tab-pane fade" id="cuatro-tab-pane" role="tabpanel" aria-labelledby="cuatro-tab" tabindex="0">
+                    aqui va el cuarto
+                </div>
+
+                <div class="tab-pane fade" id="cinco-tab-pane" role="tabpanel" aria-labelledby="cinco-tab" tabindex="0">
+                    aqui va el quito
+                </div>
+
+                <div class="tab-pane fade" id="seis-tab-pane" role="tabpanel" aria-labelledby="seis-tab" tabindex="0">
+                    aqui va el sexto
+                </div>
+
+                <div class="tab-pane fade" id="siete-tab-pane" role="tabpanel" aria-labelledby="siete-tab" tabindex="0">
+                    aqui va el septimo
+                </div>
+
+                <div class="tab-pane fade" id="ocho-tab-pane" role="tabpanel" aria-labelledby="ocho-tab" tabindex="0">
+                    aqui va el octavo
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+            </div>
+        </div>
+
+        
+	</div>
+	<!-- END #app -->
+	<!-- BEGIN btn-scroll-top -->
+<a href="#" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+<!-- END btn-scroll-top -->
+	<!-- ================== BEGIN BASE JS ================== -->
+<script src="public/js/vendor.min.js"></script>
+<script src="public/js/app.min.js"></script>
+<!-- ================== END BASE JS ================== -->
+
+
+    <div class="modal fade" id="showModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="showModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="showModalLabel">Periodos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Pase a Caja</th>
+                            <th>Recibo Oficial</th>
+                            <th>Importe</th>
+                            <th>Fecha de Pago</th>
+                            <th>Declaración</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <td>2000001225344129091125756</td>
+                                <td>2000001225344129091125756</td>
+                                <td>$4,986.00</td>
+                                <td>12/07/2022</td>
+                                <td>
+                                    <a href="#" class="btn btn-success btn-sm">
+                                        <span class="mdi mdi-download-circle"></span> Descargar PDF
+                                    </a>
+                                </td>
+                            </tr>
+                                                </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.1.1/dist/select2-bootstrap-5-theme.min.css" />
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+
+
+
+
+
+            $('.select2Agreements').select2({
+                theme: 'bootstrap-5',
+                allowClear: true,
+                //multiple: true,
+                language: 'es',
+                //templateResult: formatList,
+                escapeMarkup: function(markup) {
+                    return markup;
+                },
+                templateResult: function(data) {
+                    return data.html;
+                },
+                templateSelection: function(data) {
+                    return data.text;
+                },
+                placeholder: 'Buscar un acuerdo por número o descripción',
+                //minimumInputLength: 1,
+                ajax: {
+                    url: '/acuerdos/ajax',
+                    dataType: 'json',
+                    method: 'POST',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            term: params.term,
+                            type: 'agreements'
+                        }
+                    },
+                    processResults: function (data, page) {
+                        return {
+                            results: data
+                        };
+                    },
+                }
+
+            });
+
+
+            $('.select2Agreements').on('select2:select', function (e) {
+                var data = e.params.data;
+                window.location = "/acuerdos/"+data.id+"/seguimiento/";
+            });
+
+            //Swal.fire('Hello world!');
+
+        });
+
+
+    </script>
+</body>
+</html>

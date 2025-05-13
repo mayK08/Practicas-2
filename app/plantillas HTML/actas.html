@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+<title>Expedición de Actas en Línea</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta name="keywords" content="" />
+<meta name="csrf-token" content="TFAtgoiWooQUu8SZCYmoaaNap8UQXlq2zx3Pj3Zf">
+<link href="public/images/favicon.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+
+<!-- ================== BEGIN BASE CSS STYLE ================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+<link href="public/css/vendor.min.css" rel="stylesheet">
+<link href="public/css/app.min.css" rel="stylesheet">
+<!-- ================== END BASE CSS STYLE ================== -->
+
+</head>
+<body class="">
+<!-- BEGIN #app -->
+<div class="app app-public ">
+        <header  class=" d-none d-sm-block " >
+
+
+
+    
+    <section id="top-header">
+        <div class="container">
+            <div class="container-inner">
+                <div class="row">
+
+                    <div class="col-6 col-sm-2">
+                        <div class="logo">
+                            <a href="https://www.sonora.gob.mx"
+                               target="_blank"
+                               rel="nofollow noreferrer noopener"><img
+                                        class="sppb-img-responsive sppb-element-lazy sppb-element-loaded"
+                                        src="public/images/logo-escudo.svg"
+                                        alt="Gobierno del Estado de Sonora"
+                                        title="" loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-sm-10">
+                        <nav class="navbar navbar-expand-lg" aria-label="Menú de Accesos de Gobierno">
+
+                            <button class="navbar-toggler"
+                                    type="button"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#navbar-120"
+                                    aria-controls="navbar-120"
+                                    aria-labels="Alternar navegación">
+                                    <span class="mdi mdi-menu" aria-hidden="true"></span>
+                            </button>
+                            <div class="offcanvas offcanvas-end"
+                                 tabindex="-1" id="navbar-120"
+                                 aria-labelledby="navbar-120Label">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title"
+                                        id="navbar-120Label">
+                                        Accesos de Gobierno</h5>
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <ul class="menu navbar-nav justify-content-end flex-grow-1 pe-3 menu-accesos nav">
+                                        <li class="item-274"><a
+                                                    href="https://www.sonora.gob.mx/servicios-y-tramites"
+                                                    class="nav-link "
+                                                    target="_blank"
+                                                    rel="noopener noreferrer">Servicios
+                                                y Trámites</a>
+                                        </li>
+                                        <li class="item-275"><a
+                                                    href="https://www.sonora.gob.mx/gobierno"
+                                                    class="nav-link "
+                                                    target="_blank"
+                                                    rel="noopener noreferrer">Gobierno</a>
+                                        </li>
+                                        <li class="item-276"><a
+                                                    href="https://datos.sonora.gob.mx"
+                                                    class="nav-link "
+                                                    target="_blank"
+                                                    rel="noopener noreferrer">Datos
+                                                Abiertos</a>
+                                        </li>
+                                        <li class="item-288"><a
+                                                    href="https://www.visitsonora.mx"
+                                                    class="nav-link "
+                                                    target="_blank"
+                                                    rel="noopener noreferrer">Visitantes</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <nav class="" aria-label="Breadcrumbs">
+
+
+            
+    <nav class="" aria-label="Breadcrumbs">
+        <ol class="mod-breadcrumbs breadcrumb">
+
+            <a href="https://www.sonora.gob.mx/" class=" breadcrumb-item" title="Gobierno del Estado de Sonora">
+                <span class="divider mdi mdi-home"></span>
+            </a>
+
+            <a href="https://www.sonora.gob.mx/gobierno" class="breadcrumb-item" title="Gobierno del Estado de Sonora">
+                <span>Gobierno</span>
+            </a>
+
+            <a href="https://sidur.sonora.gob.mx/" class=" breadcrumb-item" title="Secretaría de Hacienda">
+                <span>Secretaría de Hacienda</span>
+            </a>
+
+            <a href="https://seiot.sonora.gob.mx/" class="breadcrumb-item" title="Expedicación de Actas">
+                <span>Expedicación de Actas</span>
+            </a>
+
+
+        </ol>
+    </nav>
+
+
+
+
+        </nav>
+    </div>
+
+    
+    <div class="container">
+        <section id="hero">
+            <img class="" src="public/images/actas/logo-registro-civil-w.svg"  alt="Expedicación de Actas" title="" loading="lazy">
+        </section>
+    </div>
+
+    
+</header>
+
+
+    <div id="content" class="app-public-content">
+        
+    <div class="tool-bar">
+    <div class="container">
+        <nav class="navbar navbar-expand-sm bg-white navbar-tools mx-0  py-0 py-sm-3 px-0">
+            <div class="container-fluid">
+
+                <!-- Quitamos el boton -->
+                <a class="btn btn-outline-secondary d-none" aria-current="page" href="#"><span class="mdi mdi-chevron-left"></span>Regresar a Pagos Directos</a>
+                <!-- el menú se oculta -->
+                <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+
+                <!-- el menú se oculta -->
+
+                <div class="collapse navbar-collapse menu-tools d-none" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Servicios</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Pagos Directos
+                            </a>
+                            <ul class="dropdown-menu shadow">
+                                <li><a class="dropdown-item" href="#">Registro Civil</a></li>
+                                <li><a class="dropdown-item" href="#">Vida Silvestre</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Antecedentes Penales</a></li>
+                                <li><a class="dropdown-item" href="#">Pesca</a></li>
+                                <li><a class="dropdown-item" href="#">Constancia de No Servidor Público</a></li>
+                                <li><a class="dropdown-item" href="#">Protección Civil</a></li>
+                                <li><a class="dropdown-item" href="#">Educación y Cultura</a></li>
+                                <li><a class="dropdown-item" href="#">Secretaría de Salud</a></li>
+                                <li><a class="dropdown-item" href="#">Secretaría de Salud</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Sistemas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Roles</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- se muestran al iniciar sesión -->
+                <ul class="navbar-nav ms-auto ms-sm-auto flex-row account-tools">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" title="Tus actas" data-bs-target="#cart" >
+                            <span class="shopping-cart"><span class="mdi mdi-cart-outline"></span> <span class="counter">4</span></span>
+
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="mdi mdi-account-circle-outline"></span> <span>Gabriel Quijada</span>
+                        </a>
+                        <ul class="dropdown-menu shadow">
+                            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Contraseña</a></li>
+                            <li><a class="dropdown-item" href="#">Seguridad</a></li>
+                            <li><a class="dropdown-item" href="#">Información</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+                <!-- Desaparece al iniciar sesión -->
+                <a class="btn btn-outline-primary ms-3" href="#">
+                    <img class="filter-primary" src="public/images/llave/logo-llave-sonora-icono.svg" style="height: 16px" /> Iniciar sesión
+                </a>
+
+            </div>
+        </nav>
+    </div>
+
+</div>
+
+
+    <div class="container">
+
+
+        <div class="my-6">
+
+
+            <div class="w-100 w-sm-100 w-md-50 mx-auto">
+
+                <h2 class="text-tertiary text-uppercase fw-700 text-center">Expedición de Actas</h2>
+                <div id="kendoStepper"></div>
+            </div>
+
+
+            <div class="w-100 w-sm-100 w-md-100 mx-auto my-5">
+                <div class="steps">
+                    <div class="step-1">
+                        <div class="step-1">
+    <div class="w-100 w-sm-100 w-md-75 m-auto">
+
+        <!-- Agregar el texto descriptivo de la acción que debe realizar el usuario -->
+
+        <h3 class="text-dark fw-700 mb-5 fs-5">Elige el tipo de acta que deseas obtener</h3>
+
+
+        <!-- Cambiar g-3 por g-4 -->
+        <div class="row g-4 mb-5">
+
+
+            <!-- ninguno de los botones debe esta seleccionado -->
+            <!-- al dar click, debe llevar al usuario a la sección de busqueda -->
+
+            <div class="col-6">
+                <div class="card card-body card-hover seleccionaTipo" id="seleccionaNacimiento" data-tipo="Nacimiento">
+                    <div class="filter-primary mb-3"><img src="/images/actas/iconos/nacimiento.svg" class="card-img h-90px"> </div>
+                    <h4 class="card-title text-center fw-bold text-tertiary">Nacimiento</h4>
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <div class="card card-body card-hover seleccionaTipo" id="seleccionaDefuncion" data-tipo="Defuncion">
+                    <div class="filter-primary mb-3"><img src="/images/actas/iconos/defuncion.svg" class="card-img h-90px"> </div>
+                    <h4 class="card-title text-center fw-bold text-tertiary">Defunción</h4>
+                </div>
+            </div>
+
+
+            <div class="col-6">
+                <div class="card card-body card-hover seleccionaTipo" id="seleccionaMatrimonio" data-tipo="Matrimonio">
+                    <div class="filter-primary mb-3"><img src="/images/actas/iconos/matrimonio.svg" class="card-img h-90px"> </div>
+                    <h4 class="card-title text-center fw-bold text-tertiary">Matrimonio</h4>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card card-body card-hover seleccionaTipo" id="seleccionaDivorcio" data-tipo="Divorcio">
+                    <div class="filter-primary mb-3"><img src="/images/actas/iconos/divorcio.svg" class="card-img h-90px"> </div>
+                    <h4 class="card-title text-center fw-bold text-tertiary">Divorcio</h4>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+        <div id="formBusqueda" style="display: none">
+            <!-- Se hizo un cambio e el titulo para agregar la opción de solicitudes -->
+            <h3 id="tipoBusqueda" class="text-dark mt-10 fw-700 mb-5 fs-5">Seleccione la forma en que desea buscar o dar seguimiento a su solicitud de actas</h3>
+
+
+            <div class="row g-3">
+                <div class="col-sm-4" id="BuscarCurp">
+                    <input id="TipoBusquedaCurp" class="k-radio k-radio-md" name="TipoBusqueda" type="radio" value="Curp">
+                    <label for="TipoBusquedaCurp">Clave Única de Registro de Población (CURP)</label>
+                </div>
+                <div class="col-sm-2" id="BuscarDatos">
+                    <input  class="k-radio k-radio-md" id="TipoBusquedaDatos" name="TipoBusqueda" type="radio" value="Datos">
+                    <label for="TipoBusquedaDatos">Datos Personales</label>
+                </div>
+
+                <div class="col-sm-4" id="BuscarSolicitud">
+                    <input class="k-radio k-radio-md" id="TipoSeguimientoSolicitud" name="TipoBusqueda" type="radio" value="Seguimiento">
+                    <label for="TipoSeguimientoSolicitud">Seguimiento de Solicitud</label>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="TipoBusqueda" style="display: none">
+
+            <div id="buscaPorTipoCurp" class="formTipoActa my-5" style="display: none;">
+                <div class="row mb-3">
+                    <div class="col-8">
+                        <h3 class="text-primary fw-700">Clave Única de Registro de Población (CURP)</h3>
+                    </div>
+                    <div class="col-4 text-end">
+                        <span class="text-danger">Campos obligatorios *</span>
+                    </div>
+                </div>
+
+                <div class="card card-body p-3 p-sm-5">
+                    <div class="row g-3 justify-content-center">
+
+                        <div class="col-sm-8">
+                            <div class="form-floating outline">
+                                <input type="text" class="form-control form-control-lg searchField" id="CURP" name="CURP" placeholder="Ingrese su CURP" required="required" value="">
+                                <label for="curp">Clave Única de Registro de Población (CURP) <span class="text-danger">*</span></label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="row justify-content-center g-3">
+                                <div class="col-sm-5">
+                                    <a href="https://www.gob.mx/curp/" target="_blank" rel="noopener noreferrer" class="link-info my-5">¿No conoces tu CURP?</a>
+                                </div>
+
+                                <div class="col-sm-7">
+                                    <div class="text-center text-sm-end">
+                                        <div id="captchaCURPSearch" class="d-flex justify-content-end mb-3"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-280lpouzy106" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcQtCMnAAAAAPJ8Szy5tiYcxi0sTspYhWNW5vgA&amp;co=aHR0cHM6Ly9zZXJ2aWNpb3Muc2lpYWZoYWNpZW5kYS5nb2IubXg6NDQz&amp;hl=es-419&amp;v=3sU2vDRVDmUU2E0Ro4VadvPr&amp;size=normal&amp;cb=ckwb9zqckmse"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+                                        <button type="button" class="btn btn-default" onclick="cleanFieldsAndResults()">
+                                            <span class="mdi mdi-refresh"></span> Limpiar
+                                        </button>
+
+                                        <button type="button" class="btn btn-info" id="buscadorCURP">
+                                            <span class="mdi mdi-magnify"></span> Buscar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="buscaPorTipoDatos" class="formTipoActa my-5" style="display:none;">
+                <div class="row mb-3">
+                    <div class="col-8">
+                        <h3 class="text-primary fw-700">Datos Personales</h3>
+                    </div>
+                    <div class="col-4 text-end">
+                        <span class="text-danger">Campos obligatorios *</span>
+                    </div>
+                </div>
+
+                <div class="card card-body p-3 p-sm-5">
+
+                    <div class="row g-4">
+
+                        <div class="nacimiento defuncion col-sm-6" style="">
+                            <div class="form-floating outline">
+                                <input type="text" class="form-control form-control-lg searchField" id="NOMBRE" name="NOMBRE" placeholder="Proporcione su(s) nombre(s)" required="required" value="">
+                                <label for="nombre">Nombre(s) <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione su(s) nombre(s)" data-bs-original-title="Proporcione su(s) nombre(s)" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a></label>
+                            </div>
+                            <span class="validation-message text-danger"></span>
+                        </div>
+
+                        <div class="nacimiento defuncion col-sm-6" style="">
+                            <div class="form-floating outline">
+                                <input type="text" class="form-control form-control-lg searchField" id="APE_PATERNO" name="APE_PATERNO" placeholder="Proporcione el primer apellido" required="required" value="">
+                                <label for="primerApellido">Primer Apellido <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el primer apellido" data-bs-original-title="Proporcione el primer apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a> </label>
+                            </div>
+                            <span class="validation-message text-danger"></span>
+                        </div>
+
+                        <div class="nacimiento defuncion col-sm-6" style="">
+                            <div class="form-floating outline">
+                                <input type="text" class="form-control form-control-lg searchField" id="APE_MATERNO" name="APE_MATERNO" placeholder="Proporcione el segundo apellido" required="required" value="">
+                                <label for="segundoApellido">Segundo Apellido  <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el segundo apellido" data-bs-original-title="Proporcione el segundo apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a> </label>
+                            </div>
+                            <span class="validation-message text-danger"></span>
+                        </div>
+
+
+                        <div class="col-12 matrimonio" style="display: none;">
+                            <div class="row gx-5">
+                                <div class="col-sm-6">
+                                    <h4>Datos del Contrayente 1</h4>
+                                    <div class="row g-3">
+
+                                        <div class="matrimonio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="NOMBRE_CONTRAYENTE_EL" name="NOMBRE_CONTRAYENTE_EL" placeholder="Proporcione Nombre del contrayente" required="required" value="">
+                                                <label for="nombreEl">
+                                                    <span id="nombreElMsg">Nombre(s)</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione su(s) nombre(s)" data-bs-original-title="Proporcione el primer apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="matrimonio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="PATERNO_CONTRAYENTE_EL" name="PATERNO_CONTRAYENTE_EL" placeholder="Proporcione el primer apellido del contrayente" required="required" value="">
+                                                <label for="primerApellidoEl">
+                                                    <span id="primerApellidoElMsg">Primer Apellido</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el primer apellido" data-bs-original-title="Proporcione el primer apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="matrimonio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="MATERNO_CONTRAYENTE_EL" name="MATERNO_CONTRAYENTE_EL" placeholder="Proporcione el segundo apellido del contrayente" required="required" value="">
+                                                <label for="segundoApellidoEl">
+                                                    <span id="segundoApellidoElMsg">Segundo Apellido</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el segundo apellido" data-bs-original-title="Proporcione el segundo apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="contrayentediv"><h4>Datos del Contrayente 2</h4></div>
+                                    <div class="row g-3">
+
+                                        <div class="matrimonio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="NOMBRE_CONTRAYENTE_ELLA" name="NOMBRE_CONTRAYENTE_ELLA" placeholder="Proporcione Nombre del contrayente" required="required" value="">
+                                                <label for="nombreElla">
+                                                    <span id="nombreEllaMsg">Nombre(s)</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione su(s) nombre(s)" data-bs-original-title="Proporcione su(s) nombre(s)" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="matrimonio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="PATERNO_CONTRAYENTE_ELLA" name="PATERNO_CONTRAYENTE_ELLA" placeholder="Proporcione el primer apellido del contrayente" required="required" value="">
+                                                <label for="primerApellidoElla">
+                                                    <span id="primerApellidoEllaMsg">Primer Apellido</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el primer apellido" data-bs-original-title="Proporcione el primer apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="matrimonio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="MATERNO_CONTRAYENTE_ELLA" name="MATERNO_CONTRAYENTE_ELLA" placeholder="Proporcione el segundo apellido del contrayente" required="required" value="">
+                                                <label for="segundoApellidoElla">
+                                                    <span id="segundoApellidoEllaMsg">Segundo Apellido</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el segundo apellido" data-bs-original-title="Proporcione el segundo apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 divorcio" style="display: none;">
+                            <div class="row gx-5">
+                                <div class="col-sm-6">
+                                    <h4>Datos del Divorciado 1</h4>
+                                    <div class="row g-3">
+
+                                        <div class="divorcio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="NOMBRE_DIVORCIO_EL" name="NOMBRE_DIVORCIO_EL" placeholder="Proporcione Nombre del divorciado" required="required" value="">
+                                                <label for="nombreEl">
+                                                    <span id="nombreElMsg">Nombre(s)</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione su(s) nombre(s)" data-bs-original-title="Proporcione su(s) nombre(s)" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="divorcio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="PATERNO_DIVORCIO_EL" name="PATERNO_DIVORCIO_EL" placeholder="Proporcione el primer apellido del divorciado" required="required" value="">
+                                                <label for="primerApellidoEl">
+                                                    <span id="primerApellidoElMsg">Primer Apellido</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el primer apellido" data-bs-original-title="Proporcione el primer apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="divorcio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="MATERNO_DIVORCIO_EL" name="MATERNO_DIVORCIO_EL" placeholder="Proporcione el segundo apellido del divorciado" required="required" value="">
+                                                <label for="segundoApellidoEl">
+                                                    <span id="segundoApellidoElMsg">Segundo Apellido</span>  <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el segundo apellido" data-bs-original-title="Proporcione el segundo apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="divorciadodiv"><h4>Datos del Divorciado 2</h4></div>
+                                    <div class="row g-3">
+
+                                        <div class="divorcio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="NOMBRE_DIVORCIO_ELLA" name="NOMBRE_DIVORCIO_ELLA" placeholder="Proporcione Nombre del divorciado" required="required" value="">
+                                                <label for="nombreElla">
+                                                    <span id="nombreEllaMsg">Nombre(s)</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione su(s) nombre(s)" data-bs-original-title="Proporcione su(s) nombre(s)" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="divorcio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="PATERNO_DIVORCIO_ELLA" name="PATERNO_DIVORCIO_ELLA" placeholder="Proporcione el primer apellido del divorciado" required="required" value="">
+                                                <label for="primerApellidoElla">
+                                                    <span id="primerApellidoEllaMsg">Primer Apellido</span> <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el primer apellido" data-bs-original-title="Proporcione el primer apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+                                        <div class="divorcio col-sm-12" style="display: none;">
+                                            <div class="form-floating outline">
+                                                <input type="text" class="form-control form-control-lg searchField" id="MATERNO_DIVORCIO_ELLA" name="MATERNO_DIVORCIO_ELLA" placeholder="Proporcione el segundo apellido del divorciado" required="required" value="">
+                                                <label for="segundoApellidoElla">
+                                                    <span id="segundoApellidoEllaMsg">Segundo Apellido</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el segundo apellido" data-bs-original-title="Proporcione el segundo apellido" data-original-title="" title=""><span class="mdi mdi-information text-info"></span> </a>
+                                                </label>
+                                            </div>
+                                            <span class="validation-message text-danger"></span>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-floating outline">
+                                <select class="form-select form-select-lg" data-val="true" data-val-number="El campo ANIO debe ser un número." data-val-required="The ANIO field is required." id="ANIO" name="ANIO" placeholder="Seleccione su mes de nacimiento" required="required"><option value="2023">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2021">2021</option>
+                                    <option value="2020">2020</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <option value="2003">2003</option>
+                                    <option value="2002">2002</option>
+                                    <option value="2001">2001</option>
+                                    <option value="2000">2000</option>
+                                    <option value="1999">1999</option>
+                                    <option value="1998">1998</option>
+                                    <option value="1997">1997</option>
+                                    <option value="1996">1996</option>
+                                    <option value="1995">1995</option>
+                                    <option value="1994">1994</option>
+                                    <option value="1993">1993</option>
+                                    <option value="1992">1992</option>
+                                    <option value="1991">1991</option>
+                                    <option value="1990">1990</option>
+                                    <option value="1989">1989</option>
+                                    <option value="1988">1988</option>
+                                    <option value="1987">1987</option>
+                                    <option value="1986">1986</option>
+                                    <option value="1985">1985</option>
+                                    <option value="1984">1984</option>
+                                    <option value="1983">1983</option>
+                                    <option value="1982">1982</option>
+                                    <option value="1981">1981</option>
+                                    <option value="1980">1980</option>
+                                    <option value="1979">1979</option>
+                                    <option value="1978">1978</option>
+                                    <option value="1977">1977</option>
+                                    <option value="1976">1976</option>
+                                    <option value="1975">1975</option>
+                                    <option value="1974">1974</option>
+                                    <option value="1973">1973</option>
+                                    <option value="1972">1972</option>
+                                    <option value="1971">1971</option>
+                                    <option value="1970">1970</option>
+                                    <option value="1969">1969</option>
+                                    <option value="1968">1968</option>
+                                    <option value="1967">1967</option>
+                                    <option value="1966">1966</option>
+                                    <option value="1965">1965</option>
+                                    <option value="1964">1964</option>
+                                    <option value="1963">1963</option>
+                                    <option value="1962">1962</option>
+                                    <option value="1961">1961</option>
+                                    <option value="1960">1960</option>
+                                    <option value="1959">1959</option>
+                                    <option value="1958">1958</option>
+                                    <option value="1957">1957</option>
+                                    <option value="1956">1956</option>
+                                    <option value="1955">1955</option>
+                                    <option value="1954">1954</option>
+                                    <option value="1953">1953</option>
+                                    <option value="1952">1952</option>
+                                    <option value="1951">1951</option>
+                                    <option value="1950">1950</option>
+                                    <option value="1949">1949</option>
+                                    <option value="1948">1948</option>
+                                    <option value="1947">1947</option>
+                                    <option value="1946">1946</option>
+                                    <option value="1945">1945</option>
+                                    <option value="1944">1944</option>
+                                    <option value="1943">1943</option>
+                                    <option value="1942">1942</option>
+                                    <option value="1941">1941</option>
+                                    <option value="1940">1940</option>
+                                    <option value="1939">1939</option>
+                                    <option value="1938">1938</option>
+                                    <option value="1937">1937</option>
+                                    <option value="1936">1936</option>
+                                    <option value="1935">1935</option>
+                                    <option value="1934">1934</option>
+                                    <option value="1933">1933</option>
+                                    <option value="1932">1932</option>
+                                    <option value="1931">1931</option>
+                                    <option value="1930">1930</option>
+                                    <option value="1929">1929</option>
+                                    <option value="1928">1928</option>
+                                    <option value="1927">1927</option>
+                                    <option value="1926">1926</option>
+                                    <option value="1925">1925</option>
+                                    <option value="1924">1924</option>
+                                    <option value="1923">1923</option>
+                                    <option value="1922">1922</option>
+                                    <option value="1921">1921</option>
+                                    <option value="1920">1920</option>
+                                    <option value="1919">1919</option>
+                                    <option value="1918">1918</option>
+                                    <option value="1917">1917</option>
+                                    <option value="1916">1916</option>
+                                    <option value="1915">1915</option>
+                                    <option value="1914">1914</option>
+                                    <option value="1913">1913</option>
+                                    <option value="1912">1912</option>
+                                    <option value="1911">1911</option>
+                                    <option value="1910">1910</option>
+                                    <option value="1909">1909</option>
+                                    <option value="1908">1908</option>
+                                    <option value="1907">1907</option>
+                                    <option value="1906">1906</option>
+                                    <option value="1905">1905</option>
+                                    <option value="1904">1904</option>
+                                    <option value="1903">1903</option>
+                                    <option value="1902">1902</option>
+                                    <option value="1901">1901</option>
+                                    <option value="1900">1900</option>
+                                </select>
+                                <label for="email"><span id="aniosMsj">Año de Nacimiento</span><span class="text-danger"> *</span></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center g-3 mt-1">
+                        <div class="col-sm-5">
+
+                        </div>
+
+                        <div class="col-sm-7">
+                            <div id="captchaDataSearch" class="d-flex justify-content-end mb-3"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-qj5wv2ifdpox" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcQtCMnAAAAAPJ8Szy5tiYcxi0sTspYhWNW5vgA&amp;co=aHR0cHM6Ly9zZXJ2aWNpb3Muc2lpYWZoYWNpZW5kYS5nb2IubXg6NDQz&amp;hl=es-419&amp;v=3sU2vDRVDmUU2E0Ro4VadvPr&amp;size=normal&amp;cb=1tj2ul88r4oi"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+                            <div class="text-end">
+                                <button type="button" class="btn btn-default">
+                                    <span class="mdi mdi-refresh"></span> Limpiar
+                                </button>
+
+                                <button type="button" class="btn btn-info btn-modalActaNoEncontrada" id="buscador">
+                                    <span class="mdi mdi-magnify"></span> Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buscaPorTipoSeguimiento" class="formTipoActa my-5" style="display:none;">
+                <div class="row mb-3">
+                    <div class="col-8">
+                        <h3 class="text-primary fw-700">Seguimiento de Solicitud</h3>
+                    </div>
+                    <div class="col-4 text-end">
+                        <span class="text-danger">Campos obligatorios *</span>
+                    </div>
+                </div>
+
+                <div class="card card-body p-3 p-sm-5">
+
+                    <div class="row g-4">
+
+                        <div class="col-sm-6">
+                            <div class="form-floating outline">
+                                <input type="text" class="form-control form-control-lg searchField" id="emailSolictud" name="emailSolictud" placeholder="Proporcione un correo electrónico valido" required="required" value="">
+                                <label for="emailSolictud">Correo Electrónico <span class="text-danger">*</span>
+                                    <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el correo que ingreso al momento de hacer la solicitud" data-bs-original-title="Proporcione el correo que ingreso al momento de hacer la solicitud" data-original-title="" title="">
+                                        <span class="mdi mdi-information text-info"></span>
+                                    </a>
+                                </label>
+                            </div>
+                            <span class="validation-message text-danger"></span>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-floating outline">
+                                <input type="text" class="form-control form-control-lg" id="folioSolicitud" name="folioSolicitud" placeholder="Proporcione el número de folio de su solicitud" required="required" value="">
+                                <label for="folioSolicitud">Folio de Solicitud<span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" data-bs-toggle="tooltip" aria-label="Proporcione el número de folio de su solicitud" data-bs-original-title="Proporcione el primer apellido"><span class="mdi mdi-information text-info"></span> </a> </label>
+                            </div>
+                            <span class="validation-message text-danger"></span>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row justify-content-center g-3 mt-1">
+                        <div class="col-sm-5">
+
+                        </div>
+
+                        <div class="col-sm-7">
+                            <div id="captchaDataSearch" class="d-flex justify-content-end mb-3"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-qj5wv2ifdpox" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcQtCMnAAAAAPJ8Szy5tiYcxi0sTspYhWNW5vgA&amp;co=aHR0cHM6Ly9zZXJ2aWNpb3Muc2lpYWZoYWNpZW5kYS5nb2IubXg6NDQz&amp;hl=es-419&amp;v=3sU2vDRVDmUU2E0Ro4VadvPr&amp;size=normal&amp;cb=1tj2ul88r4oi"></iframe></div><textarea id="g-recaptcha-response-1" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+                            <div class="text-end">
+                                <button type="button" class="btn btn-default">
+                                    <span class="mdi mdi-refresh"></span> Limpiar
+                                </button>
+
+                                <button type="button" class="btn btn-info btn-consultarSolicitud" id="buscador">
+                                    <span class="mdi mdi-magnify"></span> Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+</div>                    </div>
+                    <div class="step-2" style="display: none;">
+                        <div class="w-100 w-sm-100 w-md-75 m-auto">
+    <input type="hidden" name="DetalleOk" id="DetalleOk">
+    <div id="actaDetalle">
+
+        <input type="hidden" id="anioReg" name="anioReg" value="1943">
+        <input type="hidden" id="anioC" name="anioC" value="1929">
+        <input type="hidden" id="nombre_solicitante" name="nombre_solicitante" value="MARIA TERESA">
+        <input type="hidden" id="paterno_solicitante" name="paterno_solicitante" value="ESCALANTE">
+        <input type="hidden" id="materno_solicitante" name="materno_solicitante" value="GUTIERREZ">
+
+        <input type="hidden" id="FORMATO_SELECCIONADO" value="0">
+        <input type="hidden" id="TIME_LIBRO" value="False">
+        <input type="hidden" id="TIME_TEXTO" value="False">
+
+
+
+
+        <h3 class="text-dark mt-0 fw-700 mb-5 fs-5">Por favor, revise toda la información del acta</h3>
+
+        <h4 class="text-primary fw-700 mb-3 fs-5">Datos Generales</h4>
+        <div class="card card-body p-sm-5 p-3 mb-3 ">
+            <table class="table Content-table">
+                <tbody>
+                <tr>
+                    <td class="informativo" style="width:40%"><b>Clave:</b></td>
+                    <td>12600300011943000070</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Oficialia:</b></td>
+                    <td>00301</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Num. Libro:</b></td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Num. Acta:</b></td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Fecha de Registro:</b></td>
+                    <td>11/01/1943</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Lugar de Registro:</b></td>
+                    <td>ALAMOS, SONORA, ALAMOS</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4 class="text-primary fw-700 mb-3 fs-5">Datos del Registrado</h4>
+        <div class="card card-body p-sm-5 p-3 mb-3">
+            <table class="table Content-table">
+                <tbody>
+                <tr>
+                    <td class="informativo" style="width:40%"><b>CRIP:</b></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>CURP:</b></td>
+                    <td>EAGT291015MSRSTR12</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Nombre(s):</b></td>
+                    <td>MARIA TERESA</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Apellido Paterno:</b></td>
+                    <td>ESCALANTE</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Apellido Materno:</b></td>
+                    <td>GUTIERREZ</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Fecha Nacimiento:</b></td>
+                    <td>15/10/1929</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Lugar de Nacimiento:</b></td>
+                    <td>ALAMOS, ALAMOS, SONORA, MEXICO</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Registrado:</b></td>
+                    <td>VIVO</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Sexo:</b></td>
+                    <td>FEMENINO</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h4 class="text-primary fw-700 mb-3 fs-5">Datos de los Padres</h4>
+        <div class="card card-body p-sm-5 p-3 mb-3">
+            <table class="table Content-table">
+                <tbody>
+                <tr>
+                    <td class="informativo" style="width:40%"><b>Nombre Padre:</b></td>
+                    <td>ROSARIO ESCALANTE  </td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Edad Padre:</b></td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Nacionalidad Padre:</b></td>
+                    <td>MEXICANA</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Nombre Madre:</b></td>
+                    <td>TERESA GUTIERREZ DE ESCALANTE</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Edad Madre:</b></td>
+                    <td>37</td>
+                </tr>
+                <tr>
+                    <td class="informativo"><b>Nacionalidad Madre:</b></td>
+                    <td>MEXICANA</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="alert alert-warning">
+            <p class="m-0">
+                <input type="checkbox" id="aceptoTerm" class="mx-2 k-checkbox k-checkbox-md k-rounded-md aceptoTerm" aria-label="He leído y estoy de acuerdo con la información."> <label for="aceptoTerm" class="fw-700">He leído y estoy de acuerdo con la información.</label>
+            </p>
+        </div>
+
+        <h3 class="text-dark mt-5 fw-700 mb-5 fs-5">Seleccione el formato en el cual desea obtener su acta</h3>
+
+        <div class="row g-3">
+            <div class="col-12">
+                <label for="tipoFormatoActaTexto" class="fw-700"><input type="checkbox" name="tipoFormatoActa[]" class="k-checkbox k-checkbox-lg" id="tipoFormatoActaTexto"> Texto</label>
+                <button type="button" class="text-info btn p-0 btn-link link-info" data-bs-toggle="popover" data-bs-content="Los datos en este formato aparecen de forma clara y legible"><span class="mdi mdi-information"></span></button>
+
+            </div>
+
+            <div class="col-12">
+                <label for="tipoFormatoActaLibro" class="fw-700"><input type="checkbox" name="tipoFormatoActa[]" class="k-checkbox k-checkbox-lg" id="tipoFormatoActaLibro"> Libro</label>
+                <button type="button" class="text-info btn p-0 btn-link link-info" data-bs-toggle="popover" data-bs-content="Los datos en este formato aparecen de forma legible y comprensible"><span class="mdi mdi-information"></span></button>
+
+            </div>
+
+        </div>
+
+        <a href="#" class="nextButton" data-step="2">siguiente (esto no va)</a>
+
+    </div>
+</div>                    </div>
+                    <div class="step-3" style="display: none;">
+                        <div class="w-100 w-sm-100 w-md-75 m-auto">
+    <input id="INFO_TRAMITE_NOMBRE_SOLICITANTE" name="INFO_TRAMITE.NOMBRE_SOLICITANTE" type="hidden" value="MARIA TERESA ESCALANTE GUTIERREZ">
+    <input id="INFO_TRAMITE_COD_CONCEPTO_ACTA" name="INFO_TRAMITE.COD_CONCEPTO_ACTA" type="hidden" value="43110100021">
+    <input id="INFO_TRAMITE_COD_OP_PRINC_ACTA" name="INFO_TRAMITE.COD_OP_PRINC_ACTA" type="hidden" value="4311">
+    <input id="INFO_TRAMITE_COD_OP_PARCI_ACTA" name="INFO_TRAMITE.COD_OP_PARCI_ACTA" type="hidden" value="0021">
+    <input id="INFO_TRAMITE_COD_CONCEPTO_ENVIO_E" name="INFO_TRAMITE.COD_CONCEPTO_ENVIO_E" type="hidden" value="INP44011002">
+    <input id="INFO_TRAMITE_COD_OP_PRINC_ENVIO_E" name="INFO_TRAMITE.COD_OP_PRINC_ENVIO_E" type="hidden" value="N450">
+    <input id="INFO_TRAMITE_COD_OP_PARCI_ENVIO_E" name="INFO_TRAMITE.COD_OP_PARCI_ENVIO_E" type="hidden" value="2201">
+    <input data-val="true" data-val-number="El campo COSTO_ENVIO_E debe ser un número." data-val-required="The COSTO_ENVIO_E field is required." id="INFO_TRAMITE_COSTO_ENVIO_E" name="INFO_TRAMITE.COSTO_ENVIO_E" type="hidden" value="130.0">
+    <input id="INFO_TRAMITE_COD_CONCEPTO_ENVIO_N" name="INFO_TRAMITE.COD_CONCEPTO_ENVIO_N" type="hidden" value="INP44011004">
+    <input id="INFO_TRAMITE_COD_OP_PRINC_ENVIO_N" name="INFO_TRAMITE.COD_OP_PRINC_ENVIO_N" type="hidden" value="N450">
+    <input id="INFO_TRAMITE_COD_OP_PARCI_ENVIO_N" name="INFO_TRAMITE.COD_OP_PARCI_ENVIO_N" type="hidden" value="2202">
+    <input data-val="true" data-val-number="El campo COSTO_ENVIO_N debe ser un número." data-val-required="The COSTO_ENVIO_N field is required." id="INFO_TRAMITE_COSTO_ENVIO_N" name="INFO_TRAMITE.COSTO_ENVIO_N" type="hidden" value="130.0">
+    <input data-val="true" data-val-required="El campo Email es requerido" id="INFO_TRAMITE_EMAIL" name="INFO_TRAMITE.EMAIL" type="hidden" value="">
+
+
+
+    <h3 class="text-dark fw-700 mb-5 fs-5">Elija un método para recibir su acta</h3>
+
+
+    <!-- No debe aparecer seleccionado por default ninguna de las opciones y al dar click mostrar los campos para la captura-->
+
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-6">
+            <div id="seleccionaDigital" data-tipo="Digital" class="card card-body card-hover seleccionaDocumento">
+                <div class="mb-3 card-hover filter-primary"><img src="/images/actas/iconos/digital.svg" class="card-img h-90px"> </div>
+                <h4 class="card-title text-center fw-bold text-tertiary">Digital</h4>
+                <p class="text-center">A través de su correo electrónico</p>
+            </div>
+        </div>
+
+
+        <div class="col-6">
+            <div id="seleccionaFisico" data-tipo="Fisico" class="card card-body card-hover seleccionaDocumento">
+                <div class="mb-3 card-hover filter-primary"><img src="/images/actas/iconos/fisico.svg" class="card-img h-90px"> </div>
+                <h4 class="card-title text-center fw-bold  text-tertiary">Físico</h4>
+                <p class="text-center">Recoger en el registro civil de su elección</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="documentoFisico" class="tipoDocumento">
+
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <h3 class="text-primary fw-700">Recoger en Físico</h3>
+            </div>
+            <div class="col-6 text-end">
+                <span class="text-danger">Campos obligatorios *</span>
+            </div>
+        </div>
+
+
+        <div class="card card-body p-3 p-sm-5">
+            <div class="row g-4">
+
+                <div class="col-sm-6">
+                    <div class="form-floating outline">
+                        <input type="text" class="form-control form-control-lg is-invalid" id="correoFisico" name="correo" value="" required="" placeholder="Correo Electrónico">
+                        <label for="correo">Correo Electrónico <span class="text-danger">*</span> </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-floating outline">
+                        <input type="text" class="form-control form-control-lg is-invalid" id="NOMBRE_SOLICITANTE" name="NOMBRE_SOLICITANTE" placeholder="Nombre solicitante" value="">
+                        <label for="correo">Nombre solicitante <span class="text-danger">*</span> </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-floating outline">
+                        <select class="form-select form-select-lg validar form-control is-valid" id="A_TC_MUNIC" name="A_TC_MUNIC"><option value="ACONCHI">ACONCHI</option>
+                            <option value="AGUA PRIETA">AGUA PRIETA</option>
+                            <option value="ALAMOS">ALAMOS</option>
+                            <option value="ALTAR">ALTAR</option>
+                            <option value="ARIVECHI">ARIVECHI</option>
+                            <option value="ARIZPE">ARIZPE</option>
+                            <option value="ATIL">ATIL</option>
+                            <option value="BACADEHUACHI">BACADEHUACHI</option>
+                            <option value="BACANORA">BACANORA</option>
+                            <option value="BACERAC">BACERAC</option>
+                            <option value="BACOACHI">BACOACHI</option>
+                            <option value="BACUM">BACUM</option>
+                            <option value="BANAMICHI">BANAMICHI</option>
+                            <option value="BAVIACORA">BAVIACORA</option>
+                            <option value="BAVISPE">BAVISPE</option>
+                            <option value="BENITO JUAREZ">BENITO JUAREZ</option>
+                            <option value="BENJAMIN HILL">BENJAMIN HILL</option>
+                            <option value="CABORCA">CABORCA</option>
+                            <option value="CAJEME">CAJEME</option>
+                            <option value="CANANEA">CANANEA</option>
+                            <option value="CARBO">CARBO</option>
+                            <option value="CUCURPE">CUCURPE</option>
+                            <option value="CUMPAS">CUMPAS</option>
+                            <option value="DIVISADEROS">DIVISADEROS</option>
+                            <option value="EMPALME">EMPALME</option>
+                            <option value="ETCHOJOA">ETCHOJOA</option>
+                            <option value="FRONTERAS">FRONTERAS</option>
+                            <option value="GENERAL PLUTARCO ELIAS CALLES">GENERAL PLUTARCO ELIAS CALLES</option>
+                            <option value="GRANADOS">GRANADOS</option>
+                            <option value="GUAYMAS">GUAYMAS</option>
+                            <option value="HERMOSILLO">HERMOSILLO</option>
+                            <option value="HUACHINERA">HUACHINERA</option>
+                            <option value="HUASABAS">HUASABAS</option>
+                            <option value="HUATABAMPO">HUATABAMPO</option>
+                            <option value="HUEPAC">HUEPAC</option>
+                            <option value="IMURIS">IMURIS</option>
+                            <option value="LA COLORADA">LA COLORADA</option>
+                            <option value="MAGDALENA">MAGDALENA</option>
+                            <option value="MAZATAN">MAZATAN</option>
+                            <option value="MOCTEZUMA">MOCTEZUMA</option>
+                            <option value="NACO">NACO</option>
+                            <option value="NACORI CHICO">NACORI CHICO</option>
+                            <option value="NACOZARI DE GARCIA">NACOZARI DE GARCIA</option>
+                            <option value="NAVOJOA">NAVOJOA</option>
+                            <option value="NOGALES">NOGALES</option>
+                            <option value="ONAVAS">ONAVAS</option>
+                            <option value="OPODEPE">OPODEPE</option>
+                            <option value="OQUITOA">OQUITOA</option>
+                            <option value="PITIQUITO">PITIQUITO</option>
+                            <option value="PUERTO PEÑASCO">PUERTO PEÑASCO</option>
+                            <option value="QUIRIEGO">QUIRIEGO</option>
+                            <option value="RAYON">RAYON</option>
+                            <option value="ROSARIO">ROSARIO</option>
+                            <option value="SAHUARIPA">SAHUARIPA</option>
+                            <option value="SAN FELIPE DE JESUS">SAN FELIPE DE JESUS</option>
+                            <option value="SAN IGNACIO RIO MUERTO">SAN IGNACIO RIO MUERTO</option>
+                            <option value="SAN JAVIER">SAN JAVIER</option>
+                            <option value="SAN LUIS RIO COLORADO">SAN LUIS RIO COLORADO</option>
+                            <option value="SAN MIGUEL DE HORCASITAS">SAN MIGUEL DE HORCASITAS</option>
+                            <option value="SAN PEDRO DE LA CUEVA">SAN PEDRO DE LA CUEVA</option>
+                            <option value="SANTA ANA">SANTA ANA</option>
+                            <option value="SANTA CRUZ">SANTA CRUZ</option>
+                            <option value="SARIC">SARIC</option>
+                            <option value="SOYOPA">SOYOPA</option>
+                            <option value="SUAQUI GRANDE">SUAQUI GRANDE</option>
+                            <option value="TEPACHE">TEPACHE</option>
+                            <option value="TRINCHERAS">TRINCHERAS</option>
+                            <option value="TUBUTAMA">TUBUTAMA</option>
+                            <option value="URES">URES</option>
+                            <option value="VILLA HIDALGO">VILLA HIDALGO</option>
+                            <option value="VILLA PESQUEIRA">VILLA PESQUEIRA</option>
+                            <option value="YECORA">YECORA</option>
+                        </select>
+                        <label for="email">Municipio <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" href="#" data-bs-toggle="tooltip" aria-label="Tooltip Title!" data-bs-original-title="Tooltip Title!"><span class="mdi mdi-information text-info"></span> </a> </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-floating outline">
+                        <select class="form-select form-select-lg validar is-valid form-control" id="A_TC_OFICI" name="A_TC_OFICI"><option value="ACONCHI">ACONCHI</option>
+                        </select>
+                        <label for="email">Oficialía de Registro Cívil <span class="text-danger">*</span> <a class="link link-info pe-auto opacity-100" href="#" data-bs-toggle="tooltip" aria-label="Tooltip Title!" data-bs-original-title="Tooltip Title!"><span class="mdi mdi-information text-info"></span> </a> </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="alert alert-warning">
+                        <input type="checkbox" id="DigitalFisico" class="mx-2 k-checkbox k-checkbox-md k-rounded-md DigitalFisico" aria-label="Formato de Texto"> <label for="texto" class="fw-700">También deseo recibir mi acta por correo electrónico.</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div id="documentoDigital" class="tipoDocumento d-none">
+
+        <div class="row mb-3">
+            <div class="col-6">
+                <h3 class="text-primary fw-700">Recibir en Digital</h3>
+            </div>
+            <div class="col-6 text-end">
+                <span class="text-danger">Campos obligatorios *</span>
+            </div>
+        </div>
+
+        <div class="card card-body p-sm-5 p-3">
+            <div class="row g-3">
+
+                <div class="col-sm-6">
+                    <div class="form-floating outline">
+                        <input type="text" class="form-control form-control-lg is-valid" id="NOMBRE_SOLICITANTE" name="NOMBRE_SOLICITANTE" placeholder="Nombre solicitante" value="Luis Javier Ortega">
+                        <label for="correo">Nombre solicitante <span class="text-danger">*</span> </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-floating outline">
+                        <input type="text" class="form-control form-control-lg is-valid"  id="correoDigital" name="correo" value="luis.javier@sonora.gob.mx" required="" placeholder="Correo Electrónico">
+                        <label for="correo">Correo Electrónico <span class="text-danger">*</span> </label>
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-6">
+                    <div class="form-floating outline">
+                        <input type="text" class="form-control form-control-lg is-invalid" id="confirmarCorreo" name="confirmarCorreo" value="lu.is.javier@sonora.gob.mx" required="" placeholder="Confirmar Correo Electrónico">
+                        <label for="confirmarCorreo">Confirmar Correo Electrónico <span class="text-danger">*</span> </label>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- EL botoón agregar desaparece, solo se utilizará el botón siguiente que deberá estar activo una vez que se han llenado los campos del metodo de envio -->
+    <!-- El metodo de envío desaparece apartir de la segunda acta --->
+
+</div>                    </div>
+
+                    <div class="step-4" style="display: none;">
+                        <div class="w-100 w-sm-100 w-md-75 m-auto" id="step-4">
+
+
+    <div class="my-5 text-center">
+        <button type="button" class="btn btn-success btn-lg mt-3 add-to-cart" id="saveDataCart">
+            <span class="mdi mdi-cart-plus"></span> Agregar otra acta
+        </button>
+    </div>
+
+
+    <div>
+        <div id="actaPagar">
+
+
+
+            <div id="tablaPago">
+                <table class="table" id="tablePago">
+                    <thead>
+                    <tr class="border-bottom border-2">
+                        <th style="width: 120px">Cantidad</th>
+                        <th>Concepto</th>
+                        <th class="w-20">Importe</th>
+                        <th class="w-50px"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+                                        <tr>
+
+                        <td class="text-center w-200px w-sm-auto">
+
+
+                            <input id="cabeceraActas_0__NAME_TIPO" name="cabeceraActas[0].NAME_TIPO" type="hidden"
+                                   value="Nacimiento"><input id="cabeceraActas_0__NAME" name="cabeceraActas[0].NAME"
+                                                             type="hidden" value="MARIA TERESA ESCALANTE GUTIERREZ">
+
+                                                            <input
+                                        data-val="true" data-val-number="El campo TIPO_ACTA debe ser un número."
+                                        data-val-required="The TIPO_ACTA field is required." id="cabeceraActas_0__TIPO_ACTA"
+                                        name="cabeceraActas[0].TIPO_ACTA" type="hidden" value="1">
+
+
+
+
+
+                                <div class="input-group mt-3">
+                                    <button class="btn btn-outline-default px-2" type="button"> <span class="mdi mdi-minus"></span></button>
+                                    <input type="text" class="form-control text-center" data-val="true"
+                                           data-val-number="El campo CANTIDAD debe ser un número."
+                                           data-val-required="The CANTIDAD field is required." id="cabeceraActas_0__CANTIDAD"
+                                           max="5" min="0" name="cabeceraActas[0].CANTIDAD" onchange="changeHandler(this,0)"
+                                           required="required" value="1">
+                                    <button class="btn btn-outline-default px-2" type="button"> <span class="mdi mdi-plus"></span></button>
+                                </div>
+
+
+                            
+
+
+
+                            <input id="cabeceraActas_0__CLAVE"
+                                   name="cabeceraActas[0].CLAVE"
+                                   type="hidden"
+                                   value="12600300011943000070"><input
+                                    id="cabeceraActas_0__FORMATO_ACTA" name="cabeceraActas[0].FORMATO_ACTA" type="hidden"
+                                    value="texto"><input id="cabeceraActas_0__DIGITAL_FISICO"
+                                                         name="cabeceraActas[0].DIGITAL_FISICO" type="hidden"
+                                                         value="Fisico">
+
+                            <input data-val="true"
+                                                                               data-val-number="El campo PRECIO debe ser un número."
+                                                                               data-val-required="The PRECIO field is required."
+                                                                               id="cabeceraActas_0__PRECIO"
+                                                                               name="cabeceraActas[0].PRECIO" type="hidden"
+                                                                               value="104">
+
+                        </td>
+                        <td>
+                            <strong class="d-block">Nacimiento</strong>
+                            <span class="text-secondary d-block">MARIA TERESA ESCALANTE GUTIERREZ</span>
+
+
+                            <span class="text-primary fw-bold small d-flex align-content-center">
+                                                                    <img class="filter-primary me-1" src="/images/actas/iconos/Digital.svg" style="height: 16px">
+                                    <span>Digital</span>
+                                                            </span>
+                        </td>
+                        <td class="w-80px w-sm-auto"><strong>$104 <span class="small">MXN</span></strong></td>
+                        <td class="w-80px w-sm-auto">
+                            <button type="button" class="btn btn-lg btn-link delete-item" data-name="MARIA TERESA ESCALANTE GUTIERREZ_Fisico">
+                                <span class="fas fa-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+
+                                        <tr>
+
+                        <td class="text-center w-200px w-sm-auto">
+
+
+                            <input id="cabeceraActas_0__NAME_TIPO" name="cabeceraActas[0].NAME_TIPO" type="hidden"
+                                   value="Nacimiento"><input id="cabeceraActas_0__NAME" name="cabeceraActas[0].NAME"
+                                                             type="hidden" value="MARIA TERESA ESCALANTE GUTIERREZ">
+
+                                                        1
+                            
+
+
+
+                            <input id="cabeceraActas_0__CLAVE"
+                                   name="cabeceraActas[0].CLAVE"
+                                   type="hidden"
+                                   value="12600300011943000070"><input
+                                    id="cabeceraActas_0__FORMATO_ACTA" name="cabeceraActas[0].FORMATO_ACTA" type="hidden"
+                                    value="texto"><input id="cabeceraActas_0__DIGITAL_FISICO"
+                                                         name="cabeceraActas[0].DIGITAL_FISICO" type="hidden"
+                                                         value="Fisico">
+
+                            <input data-val="true"
+                                                                               data-val-number="El campo PRECIO debe ser un número."
+                                                                               data-val-required="The PRECIO field is required."
+                                                                               id="cabeceraActas_0__PRECIO"
+                                                                               name="cabeceraActas[0].PRECIO" type="hidden"
+                                                                               value="104">
+
+                        </td>
+                        <td>
+                            <strong class="d-block">Nacimiento</strong>
+                            <span class="text-secondary d-block">MARIA TERESA ESCALANTE GUTIERREZ</span>
+
+
+                            <span class="text-primary fw-bold small d-flex align-content-center">
+                                                                <img class="filter-primary me-1" src="/images/actas/iconos/Fisico.svg" style="height: 16px">
+                                <span>Fisico</span>
+                                                            </span>
+                        </td>
+                        <td class="w-80px w-sm-auto"><strong>$104 <span class="small">MXN</span></strong></td>
+                        <td class="w-80px w-sm-auto">
+                            <button type="button" class="btn btn-lg btn-link delete-item" data-name="MARIA TERESA ESCALANTE GUTIERREZ_Fisico">
+                                <span class="fas fa-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+
+                                        <tr>
+
+                        <td class="text-center w-200px w-sm-auto">
+
+
+                            <input id="cabeceraActas_0__NAME_TIPO" name="cabeceraActas[0].NAME_TIPO" type="hidden"
+                                   value="Nacimiento"><input id="cabeceraActas_0__NAME" name="cabeceraActas[0].NAME"
+                                                             type="hidden" value="MARIA TERESA ESCALANTE GUTIERREZ">
+
+                                                            <input
+                                        data-val="true" data-val-number="El campo TIPO_ACTA debe ser un número."
+                                        data-val-required="The TIPO_ACTA field is required." id="cabeceraActas_0__TIPO_ACTA"
+                                        name="cabeceraActas[0].TIPO_ACTA" type="hidden" value="1">
+
+
+
+
+
+                                <div class="input-group mt-3">
+                                    <button class="btn btn-outline-default px-2" type="button"> <span class="mdi mdi-minus"></span></button>
+                                    <input type="text" class="form-control text-center" data-val="true"
+                                           data-val-number="El campo CANTIDAD debe ser un número."
+                                           data-val-required="The CANTIDAD field is required." id="cabeceraActas_0__CANTIDAD"
+                                           max="5" min="0" name="cabeceraActas[0].CANTIDAD" onchange="changeHandler(this,0)"
+                                           required="required" value="3">
+                                    <button class="btn btn-outline-default px-2" type="button"> <span class="mdi mdi-plus"></span></button>
+                                </div>
+
+
+                            
+
+
+
+                            <input id="cabeceraActas_0__CLAVE"
+                                   name="cabeceraActas[0].CLAVE"
+                                   type="hidden"
+                                   value="12600300011943000070"><input
+                                    id="cabeceraActas_0__FORMATO_ACTA" name="cabeceraActas[0].FORMATO_ACTA" type="hidden"
+                                    value="texto"><input id="cabeceraActas_0__DIGITAL_FISICO"
+                                                         name="cabeceraActas[0].DIGITAL_FISICO" type="hidden"
+                                                         value="Fisico">
+
+                            <input data-val="true"
+                                                                               data-val-number="El campo PRECIO debe ser un número."
+                                                                               data-val-required="The PRECIO field is required."
+                                                                               id="cabeceraActas_0__PRECIO"
+                                                                               name="cabeceraActas[0].PRECIO" type="hidden"
+                                                                               value="104">
+
+                        </td>
+                        <td>
+                            <strong class="d-block">Nacimiento</strong>
+                            <span class="text-secondary d-block">MARIA TERESA ESCALANTE GUTIERREZ</span>
+
+
+                            <span class="text-primary fw-bold small d-flex align-content-center">
+                                                                    <img class="filter-primary me-1" src="/images/actas/iconos/Digital.svg" style="height: 16px">
+                                    <span>Digital</span>
+                                                            </span>
+                        </td>
+                        <td class="w-80px w-sm-auto"><strong>$104 <span class="small">MXN</span></strong></td>
+                        <td class="w-80px w-sm-auto">
+                            <button type="button" class="btn btn-lg btn-link delete-item" data-name="MARIA TERESA ESCALANTE GUTIERREZ_Fisico">
+                                <span class="fas fa-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+
+                                        <tr>
+
+                        <td class="text-center w-200px w-sm-auto">
+
+
+                            <input id="cabeceraActas_0__NAME_TIPO" name="cabeceraActas[0].NAME_TIPO" type="hidden"
+                                   value="Nacimiento"><input id="cabeceraActas_0__NAME" name="cabeceraActas[0].NAME"
+                                                             type="hidden" value="MARIA TERESA ESCALANTE GUTIERREZ">
+
+                                                        1
+                            
+
+
+
+                            <input id="cabeceraActas_0__CLAVE"
+                                   name="cabeceraActas[0].CLAVE"
+                                   type="hidden"
+                                   value="12600300011943000070"><input
+                                    id="cabeceraActas_0__FORMATO_ACTA" name="cabeceraActas[0].FORMATO_ACTA" type="hidden"
+                                    value="texto"><input id="cabeceraActas_0__DIGITAL_FISICO"
+                                                         name="cabeceraActas[0].DIGITAL_FISICO" type="hidden"
+                                                         value="Fisico">
+
+                            <input data-val="true"
+                                                                               data-val-number="El campo PRECIO debe ser un número."
+                                                                               data-val-required="The PRECIO field is required."
+                                                                               id="cabeceraActas_0__PRECIO"
+                                                                               name="cabeceraActas[0].PRECIO" type="hidden"
+                                                                               value="104">
+
+                        </td>
+                        <td>
+                            <strong class="d-block">Nacimiento</strong>
+                            <span class="text-secondary d-block">MARIA TERESA ESCALANTE GUTIERREZ</span>
+
+
+                            <span class="text-primary fw-bold small d-flex align-content-center">
+                                                                <img class="filter-primary me-1" src="/images/actas/iconos/Fisico.svg" style="height: 16px">
+                                <span>Fisico</span>
+                                                            </span>
+                        </td>
+                        <td class="w-80px w-sm-auto"><strong>$104 <span class="small">MXN</span></strong></td>
+                        <td class="w-80px w-sm-auto">
+                            <button type="button" class="btn btn-lg btn-link delete-item" data-name="MARIA TERESA ESCALANTE GUTIERREZ_Fisico">
+                                <span class="fas fa-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+
+                    
+                    </tbody>
+
+                    <tfoot>
+                    <tr>
+                        <td><strong class="text-secondary">Total: <span id="cantidadTotal" value="">520</span> </strong></td>
+                        <td></td>
+                        <td colspan="2" class="text-end"><strong><span class="text-secondary">Monto Total:</span> <span class="text-primary" id="precioTotal" value=""> $ 520 MXN</span> </strong></td>
+                    </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+
+
+
+
+
+                <!-- cambiar el color del icono al seleccionar una opción -->
+
+            <div class="w-75 mx-auto">
+
+                <h3 class="text-primary fw-700 Title mt-5 text-center">Seleccione un método de pago</h3>
+
+
+                <hr class="my-5 border-secondary" />
+
+                <div class="row g-4 cc-selector justify-content-center" id="divFormaPagos">
+
+                    <div class="col-sm-6" id="pagoTDC_Container">
+
+                        <div class="d-flex flex-row gap-1 align-content-center card card-body">
+                            <input type="radio" name="radFormaDePago" id="pagoTDC" class="k-radio k-radio-lg" value="BBVA_TDC">
+                            <i class="pagos-cc fas fa-credit-card fa-3x fa-fw text-secondary me-2"></i>
+                            <label for="mostrarMensaje" class="text-Pagos">Pagar con Tarjeta <br />de Crédito/Débito</label>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6" id="pagoPaseCaja_Container">
+                        <div class="d-flex flex-row gap-1 align-content-center card card-body card-hover-gray card-active">
+                            <input type="radio" name="radFormaDePago" id="mostrarMensaje" class="k-radio k-radio-lg" value="VENTANILLA">
+                            <i class="pagos-cc fas fa-building fa-3x fa-fw text-warning me-2"></i>
+                            <label for="mostrarMensaje" class="text-Pagos">Pagar en ventanilla <br />o comercios</label>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-sm-6" id="pagoCodi_Container">
+
+                        <div class="d-flex flex-row gap-1 align-content-center card card-body">
+                            <input type="radio" name="radFormaDePago" id="pagoCodi" class="k-radio k-radio-lg" value="CODI">
+                            <i class="pagos-cc fas fa-qrcode fa-3x fa-fw text-secondary me-2"></i>
+                            <label for="mostrarMensaje" class="text-Pagos">Pagar con <br />CoDi</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6" id="pagoAmex_Container">
+
+                        <div class="d-flex flex-row gap-1 align-content-center card card-body">
+                            <input type="radio" name="radFormaDePago" id="pagoAmex" class="k-radio k-radio-lg" value="AMEX">
+                            <i class="pagos-cc fab fa-cc-amex fa-3x fa-fw text-secondary me-2"></i>
+                            <label for="mostrarMensaje" class="text-Pagos">Pagar con <br />American Express</label>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="text-center pt-4 pb-5">
+                <button type="button" class="btn btn-primary btn-lg" id="btnFormaPago" onclick="MetodosPagosPage.Pagar();">Pagar</button>
+            </div>
+
+
+            <div class="alert alert-warning p-5" role="alert">
+
+                <div class="row">
+                    <div class="text-center col-4 col-sm-2">
+                        <span class="mdi mdi-information-outline fa-7x lh-1"></span>
+                    </div>
+                    <div class="col-8 col-sm-10">
+                        <h4 class="alert-heading">Estimado contribuyente</h4>
+                        <p>Si usted requiere factura, le recomendamos obtenerla el mismo día de su pago.</p>
+                        <p>Le informamos que la fecha límite permitida para su emisión es el <b>Día 10 del mes siguiente</b> al que se realizo el pago.</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="FormBancosContainer"></div>
+
+
+
+        </div>
+    </div>
+</div>                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <section id="pre-footer" >
+
+    <div class="container">
+        <div class="container-inner">
+
+            <div class="row gx-5">
+
+                <div class="col-sm-6">
+
+                    <div class="info">
+                        <p class="fw-bold">Secretaría de Hacienda</p>
+                        <p>
+                            <strong>Dirección: </strong>Palacio de Gobierno. Comonfort y Dr. Paliza, Planta Baja. Col. Centenario. C.P. 83260, Hermosillo, Sonora<br>
+                            <strong>Teléfonos:</strong> 800 312 7011. Whatsapp: (662) 316 9734<br>
+                            <strong>Correo Electrónico:</strong> infocontribuyete@haciendasonroa.gob.mx</p>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-sm-6">
+                    <div class="social-networks">
+                        <div class="d-flex justify-content-center justify-content-sm-end">
+                                                            <a href="https://www.facebook.com/GobiernoSonora" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-facebook" aria-hidden="true"></i> <span>Facebook</span></a>
+                            
+                                                            <a href="https://twitter.com/gobiernosonora" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-twitter" aria-hidden="true"></i> <span>Twitter</span></a>
+                            
+                            
+                            
+                                                            <a href="https://www.youtube.com/channel/UCxmxkkHOmCknPA6xMPP_otA" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-youtube" aria-hidden="true"></i> <span>Youtube</span></a>
+                            
+                            <a href="#" target="_blank" rel="nofollow noreferrer noopener">@HaciendaSonora</a>
+
+                        </div>
+                    </div>
+
+                    <div  class="privacy">
+                        <div class="text-center text-sm-end mt-2">
+                            <p>
+
+                                <a href="https://www.sonora.gob.mx/politica-de-uso.html"
+                                   target="_blank" rel="nofollow noreferrer noopener"
+                                   class="btn btn-link link-dark py-0 px-1">Política de Uso y Privacidad</a>
+                                <a href="https://decides.sonora.gob.mx/" target="_blank"
+                                   rel="nofollow noreferrer noopener"
+                                   class="btn btn-link link-dark py-0 px-1">Denuncia Ciudadana</a>
+                                <a href="https://www.sonora.gob.mx/contacto.html" target="_blank"
+                                   rel="nofollow noreferrer noopener"
+                                   class="btn btn-link link-dark py-0 px-1">Contacto</a>
+
+                            </p>
+
+
+                            <p>Todos los derechos reservados. Sitio web desarrollado por
+                                <a href="https://oficialiamayor.sonora.gob.mx" target="_blank" rel="noopener">Oficialía Mayor</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+           
+</section>
+
+<footer class="d-none d-sm-block" >
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-2">
+                <div class="logo mb-3">
+                    <img class="" src="public/images/logo-sonora-white.svg" alt="Gobierno del Estado de Sonora" title="" loading="lazy">
+                </div>
+            </div>
+
+            <div class="col-sm-4"></div>
+
+            <div class="col-sm-3">
+                <div class="mt-3 mb-3">
+                    <ul class="social-networks d-flex justify-content-center">
+                        <a href="https://www.facebook.com/gobiernosonora" aria-label="Facebook" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-facebook " aria-hidden="true" title="Facebook"></i></a>
+                        <a href="https://www.twitter.com/gobiernosonora" aria-label="Twitter" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-twitter " aria-hidden="true" title="Twitter"></i></a>
+                        <a href="https://www.instagram.com/gobiernodesonora" aria-label="Instagram" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-instagram " aria-hidden="true" title="Instagram"></i></a>
+                        <a href="https://www.tiktok.com/@gobierno.sonora" aria-label="TikTok" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-tiktok " aria-hidden="true" title="TikTok"></i></a>
+                        <a href="https://www.youtube.com/c/GobiernodeSonoraTV" aria-label="Youtube" target="_blank" rel="nofollow noreferrer noopener"><i class="fab fa-youtube " aria-hidden="true" title="Youtube"></i></a>
+                    </ul>
+
+                </div>
+
+                <div class="text-center mb-3">
+                    @GobiernoSonora
+                </div>
+
+            </div>
+
+            <div class="col-sm-3">
+                <div class="emergency">
+                    <a href="tel://911" target="_blank"><img class="" src="public/images/911.svg" alt="911 Número de Emergencias" title="" loading="lazy"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+</div>
+<!-- ================== BEGIN BASE JS ================== -->
+<script src="public/js/vendor.min.js"></script>
+<script src="public/js/app.min.js"></script>
+<!-- ================== END BASE JS ================== -->
+
+
+
+
+    <script defer src="public/js/plugins/telerik-ui/js/kendo.all.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+
+            $('body').on('click', '.seleccionaTipo', function () {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#tipoBusqueda").offset().top
+                }, 500);
+            })
+
+
+            var stepper = $("#kendoStepper").kendoStepper({
+                linear: true,
+                //indicator: true,
+                steps: [{
+                    label: "Búsqueda",
+                    //icon:"user"
+                }, {
+                    label: "Datos",
+                    //icon:"book",
+                    //error: true
+                }, {
+                    label: "Envío",
+                    //icon:"flip-vertical",
+                    //selected: true
+                }, {
+                    label: "Pago",
+                    //icon:"flip-vertical",
+                    //selected: true
+                }],
+                activate: onActivate,
+                select: onSelect,
+            }).getKendoStepper();
+
+            $('body').on('click', '.nextButton', function () {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $("#wizard").offset().top
+
+                }, 500);
+
+                let stepperIndex = $(this).data('step');
+                stepper.select(stepperIndex);
+                $('.step-content').children().removeClass('active');
+                // $('.steps').children().eq(index).show();
+                $('.step-content').children().eq(stepperIndex).addClass('active');
+
+            })
+
+
+            function onActivate(e) {
+                console.log("Activated: " + e.step.options.label);
+            }
+
+            function onSelect(e) {
+                console.log(e.step.options);
+                let index = e.step.options.index;
+                //$('.step-content').children().hide();
+                $('.step-content').children().removeClass('active');
+                // $('.steps').children().eq(index).show();
+                $('.step-content').children().eq(index).addClass('active');
+
+            }
+        });
+
+        window.tipoActa = "Nacimiento";
+        $('body').on('click', '.seleccionaTipo', function (e) {
+
+            e.preventDefault();
+            let id = $(this).data('tipo');
+            window.tipoActa = id;
+            $('#formBusqueda').show();
+
+            if (id === "Nacimiento")
+                $('#BuscarCurp').show();
+            else if (id !== "Nacimiento")
+                $('#BuscarCurp').hide();
+
+        });
+
+
+
+        $('body').on('click', '[name="TipoBusqueda"]', function (e) {
+
+            //e.preventDefault();
+            let id = $(this).val();
+
+            $('#TipoBusqueda').show();
+            $('#buscaPorTipoDatos').show();
+
+            $('[id^="buscaPor"]').hide();
+            $('#buscaPorTipo' + id).show();
+
+        });
+
+
+        function initServActaNoEncontrada(){
+            Swal.fire({
+                title: "Atención",
+                icon: "warning",
+                reverseButtons: true,
+                html: `<p>Para realizar este trámite es obligatorio contar con los datos registrales que vienen su acta (lugar de registro, oficialía de registro, número de acta y año de registro).</p> <p>Si no cuenta con ellos, acuda a cualquiera <br />de las oficinas del Registro Civil.</p>`,
+                showCloseButton: false,
+                //showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: `Aceptar`,
+                confirmButtonAriaLabel: "Aceptar",
+                //cancelButtonText: `Cerrar`,
+                //cancelButtonAriaLabel: "Cerrar"
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    window.location = "public/actas/digitalizacion/"+window.tipoActa
+                }
+            });
+        }
+
+
+        $('body').on('click','.btn-modalActaNoEncontrada',function (e) {
+
+
+            Swal.fire({
+                //title: "<strong>HTML <u>example</u></strong>",
+                icon: "warning",
+                reverseButtons: true,
+                html: `Su acta no ha sido digitalizada. Si desea iniciar con ese proceso, por favor, haga clic en el botón <br/> <b>"Solicitar Digitalización"</b>`,
+                showCloseButton: false,
+                showCancelButton: true,
+                focusConfirm: false,
+                confirmButtonText: `Solicitar Digitalización`,
+                confirmButtonAriaLabel: "Solicitar Digitalización",
+                cancelButtonText: `Cerrar`,
+                cancelButtonAriaLabel: "Cerrar"
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    initServActaNoEncontrada();
+                }
+            });
+
+
+        });
+
+        $('body').on('click', '.btn-consultarSolicitud', function (e) {
+            e.preventDefault();
+            
+            window.location = "public/actas/seguimiento/"+window.tipoActa
+
+        });
+
+
+
+
+
+    </script>
+
+</body>
+</html>
