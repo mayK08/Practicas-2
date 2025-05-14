@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  @php
+  use Illuminate\Support\Facades\Auth;
+  @endphp
   <meta charset="utf-8" />
   <title>Declaranet Sonora | Usuarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -63,13 +66,9 @@
 
       <!-- BEGIN brand -->
       <div class="brand">
-
-
-        <a class="brand-logo" href="{{ url('/') }}" title="Declaranet">
-          <img src="{{ asset('images/escudo-sonora-blanco.svg') }}" class="logo" alt="Declaranet">
-          <h1>Declaranet</h1>
+        <a class="brand-logo" href="{{ url('/') }}" title="Gobierno del Estado de Sonora">
+          <img src="{{ asset('images/escudo-sonora-blanco.svg') }}" class="logo" alt="Gobierno del Estado de Sonora" style="height: 70px; margin: 10px auto;">
         </a>
-
       </div>
       <!-- END brand -->
 
@@ -87,51 +86,11 @@
           <a href="/" class="menu-link">
             <span class="menu-icon"><i class="mdi mdi-view-dashboard-variant-outline"></i></span>
             <span class="menu-text">Inicio</span>
-
           </a>
-
-          
-
         </div>
 
-
-                <div class="menu-divider"></div><div 
-                
-                
-                class="menu-header"><span class="menu-text">Páginas</span></div>
-
-                <div class="menu-item has-sub ">
-                                <a href="" class="menu-link">
-                                    <span class="menu-icon"><i class="mdi mdi-database-outline"></i></span>
-                                    <span class="menu-text">Solicitudes</span>
-                                    <span class="menu-caret"><b class="caret"></b></span>
-                                </a>
-
-                                <div class="menu-submenu">
-							<div class="menu-item  ">
-								<a href="/solicitudes_pendientes" class="menu-link"><span class="menu-text">Pendientes</span></a>
-								
-							</div>
-						
-							<div class="menu-item  ">
-								<a href="/solicitudes" class="menu-link"><span class="menu-text">No pendientes</span></a>
-								
-							</div>
-						</div>
-                          
-
-             </div>
-
-        
-        
-        
-
-
-
-          
-          
-          
-          <div class="menu-divider"></div><div class="menu-header"><span class="menu-text">Cerrar Sesión</span></div>
+        <div class="menu-divider"></div>
+        <div class="menu-header"><span class="menu-text">Cerrar Sesión</span></div>
         <div class="menu-item  ">
           <a href="#" class="menu-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <span class="menu-icon"><i class="mdi mdi-logout-variant"></i></span>
@@ -173,7 +132,7 @@
         <div class="menu">
 
           <h3 class="page-header">
-            Solicitudes         </h3>
+            Vista Empleados</h3>
 
 
               
@@ -187,10 +146,19 @@
               </div>
 
               <div class="menu-text lh-1">
-
-                Miguel Romero  <span class="mdi mdi-chevron-down"></span>
-                <small class="d-block fw-normal">miguel.romero@sonora.gob.mx</small>
-
+                @if(Auth::check())
+                  {{ Auth::user()->username ?? 'Usuario' }}
+                @else
+                  Usuario
+                @endif
+                <span class="mdi mdi-chevron-down"></span>
+                <small class="d-block fw-normal">
+                  @if(Auth::check())
+                    {{ Auth::user()->rol ?? Auth::user()->role ?? 'Usuario' }}
+                  @else
+                    Usuario
+                  @endif
+                </small>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border">
@@ -224,39 +192,15 @@
       <section class="py-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-
             <li class="breadcrumb-item"><a href="public">Inicio</a></li>
-
-
-            <li class="breadcrumb-item active" aria-current="page">Solicitudes Administrador</li>
-            
-
-            
-
-              
-
+            <li class="breadcrumb-item active" aria-current="page">Listado de Empleados</li>
           </ol>
         </nav>
-
-      </section>
-
-
-          </div>
-        </form>
-
       </section>
 
       <section class="py-4">
-      <h4 class="mb-3">Listado de Usuarios</h4>
-
-      <div id="grid" class="mb-5"></div>
-
-
-            <div id="grid"></div>
-
-      
-
-
+        <h4 class="mb-3">Listado de Empleados</h4>
+        <div id="grid" class="mb-5"></div>
       </section>
 
       <section class="">
@@ -370,90 +314,137 @@
 
     $("#grid").kendoGrid({
       dataSource: {
-        //type: "json",
-        data: [{"id":1,"name":"Miguel Romero","email":"miguel.romero@sonora.gob.mx","avatar":"default.png","email_verified_at":"2022-05-06T22:48:32.000000Z"}],
+        transport: {
+          read: {
+            url: "{{ route('empleados.recientes') }}",
+            type: "GET",
+            dataType: "json"
+          }
+        },
         schema: {
+          data: "data",
+          total: "total",
           model: {
-            id: "id",
+            id: "curp",
             fields: {
-              id: { type: "number" },
-              avatar: { type: "string" },
-              name: { type: "string" },
-              email: { type: "string" },
-              email_verified_at: { type: "date" },
-
-              //Rol: { type: "string" },
-              //ShipCity: { type: "string" }
+              curp: { type: "string" },
+              nombre: { type: "string" },
+              apellido_paterno: { type: "string" },
+              apellido_materno: { type: "string" },
+              num_empleado: { type: "string" },
+              puesto: { type: "string" },
+              dependencia: { type: "string" },
+              updated_at: { type: "date" },
+              status: { type: "string" }
             }
           }
         },
         pageSize: 20,
-
-        serverPaging: false,
+        serverPaging: true,
         serverFiltering: true,
-
+        sort: { field: "updated_at", dir: "desc" }
       },
       pageable: {
         alwaysVisible: true,
-        pageSizes: [5, 10, 20, 100]
+        pageSizes: [5, 10, 20, 100],
+        refresh: true
       },
       height: 400,
-      filterable: {
-        mode: "row"
-      },
-
       sortable: {
         mode: "multiple"
       },
-
       filterable: {
         extra: false,
         operators: {
           string: {
-            startswith: "Starts with",
-            eq: "Is equal to",
-            neq: "Is not equal to"
+            startswith: "Comienza con",
+            eq: "Es igual a",
+            neq: "No es igual a"
           }
         }
       },
-
       persistSelection: true,
-      change: onChange,
       columns: [
-            { selectable: true, width: "40px" },
-           
-            {
-              field: "name",
-              width: 255,
-              title: "Nombre",
-              filterable: {
-                cell: {
-                  operator: "contains",
-                  suggestionOperator: "contains"
-                }
-              }
-            },{
-            field: "CURP",
-            width: 255,
-            title: "CURP",
-            filterable: {
-              cell: {
-                operator: "gte"
-              }
+        { selectable: true, width: "40px" },
+        {
+          field: "curp",
+          width: 150,
+          title: "CURP",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
             }
-          },{
-            field: "email_verified_at",
-            width: 190,
-            title: "Fecha de Ingreso",
-            format: "{0:MM/dd/yyyy}"
+          }
+        },
+        {
+          field: "nombre_completo",
+          width: 200,
+          title: "Nombre Completo",
+          template: "#= apellido_paterno + ' ' + apellido_materno + ' ' + nombre #",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "num_empleado",
+          width: 120,
+          title: "Número Empleado",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "puesto",
+          width: 150,
+          title: "Puesto",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "dependencia",
+          width: 150,
+          title: "Dependencia",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "updated_at",
+          width: 150,
+          title: "Última Modificación",
+          format: "{0:dd/MM/yyyy HH:mm}",
+          filterable: false
+        },
+        {
+          field: "status",
+          width: 100,
+          title: "Estado",
+          template: function(dataItem) {
+            return dataItem.status === 'Activo' ? 
+              '<span class="badge bg-success">Activo</span>' : 
+              '<span class="badge bg-danger">Inactivo</span>';
           },
-          {
-            field: "solicitud",
-            width: 200,
-            title: "solicitud",
-            format: "{0:Rol del usuario}"
-          },
-          
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        }
       ]
     });
   });

@@ -1,0 +1,59 @@
+# Configuración de correo electrónico para Declaranet
+
+Para que las notificaciones por correo funcionen correctamente, debes editar el archivo .env con la siguiente configuración:
+
+## Opción 1: Usar Gmail como servidor SMTP
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=tu.correo@gmail.com
+MAIL_PASSWORD=tu-contraseña-de-aplicacion
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="declaranet@sonora.gob.mx"
+MAIL_FROM_NAME="Declaranet Sonora"
+
+Nota: Si utilizas Gmail, debes crear una "Contraseña de aplicación" en la configuración de seguridad de tu cuenta Google:
+1. Ve a tu cuenta Google > Seguridad
+2. Activa la verificación en dos pasos si no la tienes
+3. Ve a "Contraseñas de aplicaciones"
+4. Crea una nueva contraseña para tu aplicación Laravel
+5. Usa esa contraseña generada en MAIL_PASSWORD
+
+## Opción 2: Usar Mailtrap para pruebas (recomendado durante desarrollo)
+
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=tu-usuario-mailtrap
+MAIL_PASSWORD=tu-contraseña-mailtrap
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="declaranet@sonora.gob.mx"
+MAIL_FROM_NAME="Declaranet Sonora"
+
+Registrate en mailtrap.io para obtener credenciales gratuitas.
+
+## Opción 3: Usar el servidor SMTP de tu proveedor (recomendado para producción)
+
+MAIL_MAILER=smtp
+MAIL_HOST=tu-servidor-smtp.com
+MAIL_PORT=587 (o el puerto que indique tu proveedor)
+MAIL_USERNAME=tu-usuario
+MAIL_PASSWORD=tu-contraseña
+MAIL_ENCRYPTION=tls (o ssl según indique tu proveedor)
+MAIL_FROM_ADDRESS="declaranet@sonora.gob.mx"
+MAIL_FROM_NAME="Declaranet Sonora"
+
+# Configuración de cola para notificaciones
+
+Por defecto, Laravel intenta enviar correos de forma síncrona. Para un mejor rendimiento, 
+es recomendable usar colas:
+
+QUEUE_CONNECTION=database
+
+Después de cambiar a una cola basada en base de datos, debes ejecutar:
+1. php artisan queue:table
+2. php artisan migrate
+3. php artisan queue:work &
+
+En producción, deberías configurar un supervisor para mantener queue:work ejecutándose. 

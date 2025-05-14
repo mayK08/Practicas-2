@@ -28,11 +28,18 @@ class DatabaseSeeder extends Seeder
         //     'rol' => 'capturador',
         // ]);
 
+        // \App\Models\Usuario::create([
+        //     'curp' => 'MAPP250508HASRRDA7',
+        //     'username' => 'Pedro Perez',
+        //     'password_hash' => bcrypt('12345678'),
+        //     'rol' => 'admin',
+        // ]);
+
         \App\Models\Usuario::create([
-            'curp' => 'MAPP250508HASRRDA7',
-            'username' => 'Pedro Perez',
-            'password_hash' => bcrypt('12345678'),
-            'rol' => 'admin',
+            'curp' => 'SADM850101HDFPRN09',
+            'username' => 'SuperAdmin',
+            'password_hash' => bcrypt('superadmin123'),
+            'rol' => 'SuperAdmin',
         ]);
     }
 }

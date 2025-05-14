@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>Declaranet Sonora | Usuarios</title>
+  <title>Usuarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -67,7 +67,7 @@
 
         <a class="brand-logo" href="{{ url('/') }}" title="Declaranet">
           <img src="{{ asset('images/escudo-sonora-blanco.svg') }}" class="logo" alt="Declaranet">
-          <h1>Declaranet</h1>
+          <h1></h1>
         </a>
 
       </div>

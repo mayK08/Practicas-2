@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Declaranet Sonora | Autentificación de Usuarios</title>
+    <title>Autentificación de Usuarios</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -46,11 +46,11 @@
                                             <img src="{{ asset('images/logo-sonora-white.svg') }}" class="" alt="Gobierno del Estado de Sonora">
                                         </a>
                                     </div>
-                                    <div class="col-6 col-sm-3 offset-0 offset-sm-1 ">
+                                    <!-- <div class="col-6 col-sm-3 offset-0 offset-sm-1 ">
                                         <a class="auth-logo logo-2" href="{{ url('/') }}" title="Declaranet Sonora">
                                             <img src="{{ asset('images/logo-white.svg') }}" class="" alt="Declaranet Sonora">
                                         </a>
-                                    </div>
+                                    </div> -->
                                     <div class="col-6 col-sm-3 offset-0 offset-sm-1 ">
                                         <a class="auth-logo logo-3" href="https://om.sonora.gob.mx" title="">
                                             <img src="{{ asset('images/logo-gobierno-digital-white.svg') }}" class="" alt="Subsecretaría de Gobierno Digital">
@@ -60,7 +60,7 @@
                             </header>
                             <div class="row my-auto justify-content-center mb-0 mb-sm-5 mb-md-3 ">
                                 <div class="col-12 col-sm-8 col-md-10 text-center">
-                                    <h1 class="text-uppercase">Declaranet</h1>
+                                    <!-- <h1 class="text-uppercase">Declaranet</h1> -->
                                     <h2 class="mb-3">Sistema para el Registro de la Declaración Patrimonial de Servidores Públicos</h2>
                                     <p class="">
                                         Es la herramienta electrónica a través de la cual las personas servidoras públicas estatales presentan sus declaraciones de situación patrimonial y de intereses.
@@ -98,13 +98,14 @@
                             <section class="system-error-messages">
                             </section>
                             <h3 class="text-uppercase text-white"><span class="mdi mdi-account-circle-outline"></span> Inicio de Sesión</h3>
-                            <form method="POST" action="{{ route('login.submit') }}" autocomplete="off">
+                            <form method="POST" action="{{ route('login.submit') }}" id="loginForm" autocomplete="off">
                                 @csrf
                                 <div class="my-3">
                                     <div class="form-floating outline outline-white">
-                                        <input type="text" class="form-control form-control-lg @error('curp') is-invalid @enderror" 
-                                            id="curp" name="curp" value="{{ old('curp') }}" 
-                                            required placeholder="Ingresa tu CURP">
+                                        <input type="text"
+                                            class="form-control form-control-lg fs-15px @error('curp') is-invalid @enderror"
+                                            placeholder="Ingresa tu CURP" name="curp" value="{{ old('curp') }}" required
+                                            autofocus />
                                         <label for="curp">CURP</label>
                                         @error('curp')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -113,8 +114,12 @@
                                 </div>
                                 <div class="mb-3">
                                     <div class="form-floating outline outline-white">
-                                        <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" 
-                                            id="password" name="password" required placeholder="Ingresa tu contraseña">
+                                        <input type="password" 
+                                               class="form-control form-control-lg @error('password') is-invalid @enderror" 
+                                               id="password" 
+                                               name="password" 
+                                               required 
+                                               placeholder="Ingresa tu contraseña">
                                         <label for="password">Contraseña</label>
                                         @error('password')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -124,8 +129,7 @@
                                 <div class="row my-3">
                                     <div class="col-5 col-sm-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember"
-                                                id="remember">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember">
                                             <label class="form-check-label text-white" for="remember">
                                                 Recordarme
                                             </label>
@@ -141,9 +145,7 @@
                                     </button>
                                 </div>
                             </form>
-                            <p class="text-center text-white mt-5 mb-5 mb-sm-0">¿No tienes una cuenta? <a class="link-warning" href="javascript:void(0);"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#registerModal" title="registrar">Regístrate</a>
+                            <p class="text-center text-white mt-5 mb-5 mb-sm-0">¿No tienes una cuenta? <a class="link-warning" href="{{ route('empleados.registro') }}" title="registrar">Regístrate</a>
                             </p>
                             <div class="d-sm-none w-50 m-auto d-block text-center">
                                 <a class="" href="https://www.sonora.gob.mx" title="">
@@ -382,61 +384,241 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="registerModalLabel">Registro de Usuario</h5>
+                    <h5 class="modal-title" id="registerModalLabel">Registro de Empleado</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="kendoStepper"></div>
-                    <div class="steps">
-                        <!-- Paso 1: Búsqueda -->
-                        <div class="step-1">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="curp" class="form-label">CURP</label>
-                                    <input type="text" class="form-control" id="curp" name="curp" required>
-                                </div>
-                                <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Buscar</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Paso 2: Registro -->
-                        <div class="step-2" style="display: none;">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Nombre de Usuario</label>
-                                    <input type="text" class="form-control" id="username" name="username" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="password" name="password" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password_confirmation" class="form-label">Confirmar Contraseña</label>
-                                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
-                                </div>
-                                <div class="text-end">
-                                    <button type="submit" class="btn btn-primary">Registrar</button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Paso 3: Validación -->
-                        <div class="step-3" style="display: none;">
-                            <div class="alert alert-success">
-                                <h4 class="alert-heading">¡Registro Exitoso!</h4>
-                                <p>Tu cuenta ha sido creada correctamente. Ahora puedes iniciar sesión con tus credenciales.</p>
-                            </div>
-                            <div class="text-end">
-                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
+                    <div class="w-100 w-sm-75 mx-auto my-3">
+                        <h2 class="text-tertiary text-uppercase fw-700 text-center mb-3">
+                            Registro de Empleado
+                        </h2>
+                        <p class="text-center fs-5 mb-0">
+                            Por favor complete todos los campos requeridos para registrar su solicitud.
+                        </p>
                     </div>
+
+                    <form id="registerForm" class="w-90 w-sm-50 mx-auto" novalidate autocomplete="off">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h3 class="text-dark fw-700 mb-3 fs-5">Datos Generales</h3>
+                            </div>
+                            <div class="col-sm-4 text-end">
+                                <span class="text-danger">Campos obligatorios *</span>
+                            </div>
+                        </div>
+
+                        <div class="card card-body p-5">
+                            <div class="row g-4">
+                                <div class="col-sm-12">
+                                    <div class="form-floating outline">
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="curp" 
+                                               name="curp" 
+                                               required 
+                                               pattern="[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[A-Z0-9][0-9]"
+                                               style="text-transform: uppercase;"
+                                               placeholder="Clave Única de Registro de Población">
+                                        <label for="curp">Clave Única de Registro de Población (CURP) <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-floating outline">
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="apellido_paterno" 
+                                               name="apellido_paterno" 
+                                               required
+                                               placeholder="Primer apellido">
+                                        <label for="apellido_paterno">Primer apellido <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-floating outline">
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="apellido_materno" 
+                                               name="apellido_materno" 
+                                               required
+                                               placeholder="Segundo apellido">
+                                        <label for="apellido_materno">Segundo apellido <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-floating outline">
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="nombre" 
+                                               name="nombre" 
+                                               required
+                                               placeholder="Nombre(s)">
+                                        <label for="nombre">Nombre(s) <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-8">
+                                <h3 class="text-dark fw-700 mb-3 fs-5">Datos Laborales</h3>
+                            </div>
+                            <div class="col-sm-4 text-end">
+                                <span class="text-danger">Campos obligatorios *</span>
+                            </div>
+                        </div>
+
+                        <div class="card card-body p-5">
+                            <div class="row g-4">
+                                <div class="col-sm-6">
+                                    <div class="form-floating outline">
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="num_empleado" 
+                                               name="num_empleado" 
+                                               required
+                                               placeholder="Número de Empleado">
+                                        <label for="num_empleado">Número de Empleado <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-floating outline">
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="puesto" 
+                                               name="puesto" 
+                                               required
+                                               placeholder="Puesto">
+                                        <label for="puesto">Puesto <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="form-floating outline">
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="dependencia" 
+                                               name="dependencia" 
+                                               required
+                                               placeholder="Dependencia">
+                                        <label for="dependencia">Dependencia <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-sm-8">
+                                <h3 class="text-dark fw-700 mb-3 fs-5">Datos de Contacto</h3>
+                            </div>
+                            <div class="col-sm-4 text-end">
+                                <span class="text-danger">Campos obligatorios *</span>
+                            </div>
+                        </div>
+
+                        <div class="card card-body p-5">
+                            <div class="row g-4">
+                                <div class="col-sm-6">
+                                    <div class="form-floating outline">
+                                        <input type="email" 
+                                               class="form-control form-control-lg" 
+                                               id="email" 
+                                               name="email" 
+                                               required
+                                               placeholder="Correo electrónico">
+                                        <label for="email">Correo electrónico <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-floating outline">
+                                        <input type="tel" 
+                                               class="form-control form-control-lg" 
+                                               id="telefono" 
+                                               name="telefono" 
+                                               required
+                                               placeholder="Teléfono">
+                                        <label for="telefono">Teléfono <span class="text-danger">*</span></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-end">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                <span>Cancelar</span>
+                            </button>
+                            <button type="submit" class="btn btn-success">
+                                <span>Enviar Solicitud</span>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // Manejar el formulario de registro
+            $('#registerForm').on('submit', function(e) {
+                e.preventDefault();
+                const formData = $(this).serialize();
+                
+                // Validar CURP
+                const curp = $('#curp').val();
+                if (!validateCURP(curp)) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Por favor ingrese un CURP válido',
+                        icon: 'error'
+                    });
+                    return;
+                }
+                
+                // Enviar solicitud
+                $.ajax({
+                    url: '/api/empleados/solicitud',
+                    method: 'POST',
+                    data: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            title: '¡Solicitud Enviada!',
+                            text: 'Tu solicitud de registro ha sido enviada correctamente. Te notificaremos cuando sea aprobada.',
+                            icon: 'success'
+                        }).then(() => {
+                            $('#registerModal').modal('hide');
+                            $('#registerForm')[0].reset();
+                        });
+                    },
+                    error: function(xhr) {
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Error al enviar la solicitud: ' + (xhr.responseJSON?.message || 'Error desconocido'),
+                            icon: 'error'
+                        });
+                    }
+                });
+            });
+
+            // Función para validar CURP
+            function validateCURP(curp) {
+                const regex = /^[A-Z]{4}[0-9]{6}[HM][A-Z]{5}[A-Z0-9][0-9]$/;
+                return regex.test(curp);
+            }
+
+            // Resetear el formulario cuando se cierra el modal
+            $('#registerModal').on('hidden.bs.modal', function () {
+                $('#registerForm')[0].reset();
+            });
+        });
+    </script>
 
     <!-- Modal -->
     <div class="modal fade" id="phoneModal" tabindex="-1" aria-labelledby="phoneModalLabel" aria-hidden="true">
@@ -473,5 +655,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // Removed AJAX login submission to use standard form submission
+        });
+    </script>
 </body>
 </html>

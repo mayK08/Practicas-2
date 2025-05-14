@@ -1,6 +1,9 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
+  @php
+  use Illuminate\Support\Facades\Auth;
+  @endphp
   <meta charset="utf-8" />
   <title>Declaranet Sonora | Usuarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -63,13 +66,9 @@
 
       <!-- BEGIN brand -->
       <div class="brand">
-
-
-        <a class="brand-logo" href="{{ url('/') }}" title="Declaranet">
-          <img src="{{ asset('images/escudo-sonora-blanco.svg') }}" class="logo" alt="Declaranet">
-          <h1>Declaranet</h1>
+        <a class="brand-logo" href="{{ url('/') }}" title="Gobierno del Estado de Sonora">
+          <img src="{{ asset('images/escudo-sonora-blanco.svg') }}" class="logo" alt="Gobierno del Estado de Sonora" style="height: 70px; margin: 10px auto;">
         </a>
-
       </div>
       <!-- END brand -->
 
@@ -154,10 +153,19 @@
               </div>
 
               <div class="menu-text lh-1">
-
-                Miguel Romero  <span class="mdi mdi-chevron-down"></span>
-                <small class="d-block fw-normal">miguel.romero@sonora.gob.mx</small>
-
+                @if(Auth::check())
+                  {{ Auth::user()->username ?? 'Usuario' }}
+                @else
+                  Usuario
+                @endif
+                <span class="mdi mdi-chevron-down"></span>
+                <small class="d-block fw-normal">
+                  @if(Auth::check())
+                    {{ Auth::user()->rol ?? Auth::user()->role ?? 'Usuario' }}
+                  @else
+                    Usuario
+                  @endif
+                </small>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border">
@@ -203,32 +211,38 @@
       </section>
 
       <section class="bg-light app-filters">
-
-
-        <form method="POST" action="public/usuarios" accept-charset="UTF-8" autocomplete="off"><input name="_token" type="hidden" value="iorh6kkMTq7f5aJ3V9oTu2c0lTCjOcED6fDDzyfi">
+        <form method="POST" action="{{ route('empleados.exportar-excel') }}" accept-charset="UTF-8" autocomplete="off">
+          @csrf
           <div class="row g-3">
+            <div class="col-12">
+              <h5 class="mb-3">Generar Reporte</h5>
+            </div>
 
             <div class="col-12 col-sm-4">
-              <label for="name" class="form-label">CURP</label>
-              <input class="form-control" placeholder="CURP" name="name" type="text">
-            </div>
-            
-
-
-            <div class="col-12 col-sm-1 text-end pt-4">
-              <input class="btn btn-sm btn-info" type="submit" value="Solcitar">
+              <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
+              <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio">
             </div>
 
+            <div class="col-12 col-sm-4">
+              <label for="fecha_fin" class="form-label">Fecha Fin</label>
+              <input class="form-control" type="date" name="fecha_fin" id="fecha_fin">
+            </div>
 
-            
+            <div class="col-12 col-sm-4">
+              <label for="tipo_reporte" class="form-label">Tipo de Reporte</label>
+              <select class="form-select" name="tipo_reporte" id="tipo_reporte">
+                <option value="excel">Excel</option>
+                <option value="pdf">PDF</option>
+              </select>
+            </div>
 
-          <!-- aqui van las dependencias en caso de que se necesiten) -->
-
-
-
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-primary">
+                <i class="mdi mdi-file-excel me-1"></i> Generar Reporte
+              </button>
+            </div>
           </div>
         </form>
-
       </section>
 
       <section class="py-4">
@@ -361,89 +375,138 @@
 
     $("#grid").kendoGrid({
       dataSource: {
-        //type: "json",
-        data: [{"id":1,"name":"Miguel Romero","email":"miguel.romero@sonora.gob.mx","avatar":"default.png","email_verified_at":"2022-05-06T22:48:32.000000Z"}],
+        transport: {
+          read: {
+            url: "{{ route('empleados.recientes') }}",
+            type: "GET",
+            dataType: "json"
+          }
+        },
         schema: {
+          data: "data",
+          total: "total",
           model: {
-            id: "id",
+            id: "curp",
             fields: {
-              id: { type: "number" },
-              avatar: { type: "string" },
-              name: { type: "string" },
-              email: { type: "string" },
-              email_verified_at: { type: "date" },
-
-              //Rol: { type: "string" },
-              //ShipCity: { type: "string" }
+              curp: { type: "string" },
+              nombre: { type: "string" },
+              apellido_paterno: { type: "string" },
+              apellido_materno: { type: "string" },
+              num_empleado: { type: "string" },
+              puesto: { type: "string" },
+              dependencia: { type: "string" },
+              updated_at: { type: "date" },
+              created_at: { type: "date" },
+              status: { type: "string" }
             }
           }
         },
         pageSize: 20,
-
-        serverPaging: false,
+        serverPaging: true,
         serverFiltering: true,
-
+        sort: { field: "updated_at", dir: "desc" }
       },
       pageable: {
         alwaysVisible: true,
-        pageSizes: [5, 10, 20, 100]
+        pageSizes: [5, 10, 20, 100],
+        refresh: true
       },
       height: 400,
-      //filterable: {
-      //  mode: "row"
-      //},
-
       sortable: {
         mode: "multiple"
       },
-
       filterable: {
         extra: false,
         operators: {
           string: {
-            startswith: "Starts with",
-            eq: "Is equal to",
-            neq: "Is not equal to"
+            startswith: "Comienza con",
+            eq: "Es igual a",
+            neq: "No es igual a"
           }
         }
       },
-
       persistSelection: true,
-      change: onChange,
       columns: [
-            { selectable: true, width: "40px" },
-           
-            {
-              field: "name",
-              width: 255,
-              title: "Nombre",
-              filterable: {
-                cell: {
-                  operator: "contains",
-                  suggestionOperator: "contains"
-                }
-              }
-            },{
-            field: "curp",
-            width: 255,
-            title: "CURP",
-            filterable: {
-              cell: {
-                operator: "gte"
-              }
+        { selectable: true, width: "40px" },
+        {
+          field: "curp",
+          width: 150,
+          title: "CURP",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
             }
-          },{
-            field: "email_verified_at",
-            width: 255,
-            title: "Fecha de Ingreso",
-            format: "{0:MM/dd/yyyy}"
-          },
-          {
-            field: "Estado",
-            width: 255,
-            title: "Estado",
-            format: "{0:Estado}"
           }
+        },
+        {
+          field: "nombre_completo",
+          width: 200,
+          title: "Nombre Completo",
+          template: "#= apellido_paterno + ' ' + apellido_materno + ' ' + nombre #",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "num_empleado",
+          width: 120,
+          title: "Número Empleado",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "puesto",
+          width: 150,
+          title: "Puesto",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "dependencia",
+          width: 150,
+          title: "Dependencia",
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        },
+        {
+          field: "updated_at",
+          width: 150,
+          title: "Última Modificación",
+          format: "{0:dd/MM/yyyy HH:mm}",
+          filterable: false
+        },
+        {
+          field: "status",
+          width: 100,
+          title: "Estado",
+          template: function(dataItem) {
+            return dataItem.status === 'Activo' ? 
+              '<span class="badge bg-success">Activo</span>' : 
+              '<span class="badge bg-danger">Inactivo</span>';
+          },
+          filterable: {
+            cell: {
+              operator: "contains",
+              suggestionOperator: "contains"
+            }
+          }
+        }
       ]
     });
   });
