@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\SolicitudController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\TestMailController;
 
@@ -114,10 +115,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/solicitudes', [SolicitudController::class, 'index'])->name('solicitudes.index');
     Route::post('/solicitudes/{curp}/aprobar', [SolicitudController::class, 'aprobar'])->name('solicitudes.aprobar');
     Route::post('/solicitudes/{curp}/rechazar', [SolicitudController::class, 'rechazar'])->name('solicitudes.rechazar');
+
+    // Rutas para gestión de usuarios y roles
+    Route::prefix('usuarios')->group(function () {
+        Route::get('/gestion-roles', [UsuarioController::class, 'index'])->name('usuarios.gestion-roles');
+        Route::get('/{curp}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit');
+        Route::put('/{curp}', [UsuarioController::class, 'update'])->name('usuarios.update');
+        Route::post('/{curp}/cambiar-rol', [UsuarioController::class, 'cambiarRol'])->name('usuarios.cambiar-rol');
+        Route::get('/get-usuarios', [UsuarioController::class, 'getUsuarios'])->name('usuarios.get-usuarios');
+    });
 });
 
 // Rutas para prueba de correos
-Route::get('/test-mail-view', function () {
-    return view('test-mail');
-})->name('test.mail.view');
-Route::post('/test-mail', [TestMailController::class, 'enviarCorreoPrueba'])->name('test.mail');
+Route::get('/test-mail', [TestMailController::class, 'index'])->name('test.mail');
+Route::post('/test-mail', [TestMailController::class, 'test'])->name('test.mail.send');

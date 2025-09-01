@@ -13,16 +13,19 @@ class SolicitudAprobada extends Notification implements ShouldQueue
     use Queueable;
 
     protected $empleado;
+    protected $password;
 
     /**
      * Create a new notification instance.
      *
      * @param Empleado $empleado
+     * @param string $password
      * @return void
      */
-    public function __construct(Empleado $empleado)
+    public function __construct(Empleado $empleado, $password = null)
     {
         $this->empleado = $empleado;
+        $this->password = $password;
     }
 
     /**
@@ -44,15 +47,20 @@ class SolicitudAprobada extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        $message = (new MailMessage)
             ->subject('Solicitud de Registro Aprobada - Declaranet Sonora')
             ->greeting('¡Hola ' . $this->empleado->nombre . ' ' . $this->empleado->apellido_paterno . '!')
             ->line('Nos complace informarte que tu solicitud de registro en el sistema Declaranet Sonora ha sido aprobada.')
-            ->line('Ya puedes iniciar sesión en el sistema utilizando tu CURP y la contraseña que estableciste durante el registro.')
+            ->line('Se ha creado tu cuenta de usuario con los siguientes datos:')
+            ->line('**Usuario:** ' . $this->empleado->curp)
+            ->line('**Contraseña:** ' . ($this->password ?? 'Ya tienes una contraseña establecida'))
             ->action('Iniciar sesión', url('/'))
+            ->line('**Importante:** Por seguridad, te recomendamos cambiar tu contraseña después del primer inicio de sesión.')
             ->line('Recuerda que es obligatorio presentar tu declaración patrimonial en los plazos establecidos por la ley.')
             ->line('Si tienes alguna duda o necesitas asistencia, no dudes en contactarnos.')
             ->salutation('Atentamente, el equipo de Declaranet Sonora');
+
+        return $message;
     }
 
     /**
@@ -69,6 +77,7 @@ class SolicitudAprobada extends Notification implements ShouldQueue
             'empleado_apellido_paterno' => $this->empleado->apellido_paterno,
             'empleado_apellido_materno' => $this->empleado->apellido_materno,
             'solicitud_status' => $this->empleado->solicitud_status,
+            'password_generada' => $this->password,
             'fecha_aprobacion' => now()->format('Y-m-d H:i:s'),
         ];
     }

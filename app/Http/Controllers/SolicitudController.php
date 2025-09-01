@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Notifications\SolicitudAprobada;
 use App\Notifications\SolicitudRechazada;
 
@@ -43,13 +46,38 @@ class SolicitudController extends Controller
                 ], 404);
             }
             
+            // Verificar si ya existe un usuario para este empleado
+            $usuarioExistente = Usuario::where('curp', $curp)->first();
+            if ($usuarioExistente) {
+                Log::warning('Ya existe un usuario para el CURP: ' . $curp);
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Ya existe un usuario para este empleado'
+                ], 400);
+            }
+            
+            // Generar contraseña automática
+            $password = Str::random(8); // Contraseña de 8 caracteres
+            
+            // Crear el usuario en la tabla usuarios
+            $usuario = Usuario::create([
+                'curp' => $empleado->curp,
+                'username' => $empleado->nombre . ' ' . $empleado->apellido_paterno,
+                'email' => $empleado->email,
+                'password_hash' => Hash::make($password),
+                'rol' => 'capturador', // Rol por defecto
+            ]);
+            
+            Log::info('Usuario creado exitosamente para CURP: ' . $curp . ' con contraseña: ' . $password);
+            
+            // Actualizar el empleado
             $empleado->solicitud_status = 'Aprobada';
             $empleado->status = 'Activo';
             $empleado->save();
             
-            // Enviar notificación por correo
+            // Enviar notificación por correo con la contraseña
             try {
-                $empleado->notify(new SolicitudAprobada($empleado));
+                $empleado->notify(new SolicitudAprobada($empleado, $password));
                 Log::info('Notificación de aprobación enviada a: ' . $empleado->email);
             } catch (\Exception $emailError) {
                 Log::error('Error al enviar correo de aprobación: ' . $emailError->getMessage(), [
@@ -64,7 +92,8 @@ class SolicitudController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Solicitud aprobada exitosamente y notificación enviada'
+                'message' => 'Solicitud aprobada exitosamente, usuario creado y notificación enviada',
+                'password' => $password // Solo para debugging, no enviar en producción
             ]);
         } catch (\Exception $e) {
             Log::error('Error al aprobar solicitud: ' . $e->getMessage(), [
