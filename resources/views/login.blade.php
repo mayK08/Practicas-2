@@ -61,9 +61,9 @@
                             <div class="row my-auto justify-content-center mb-0 mb-sm-5 mb-md-3 ">
                                 <div class="col-12 col-sm-8 col-md-10 text-center">
                                     <!-- <h1 class="text-uppercase">Declaranet</h1> -->
-                                    <h2 class="mb-3">Sistema para el Registro de la Declaración Patrimonial de Servidores Públicos</h2>
+                                    <h2 class="mb-3">SISTEMA DE NOMBRAMIENTOS</h2>
                                     <p class="">
-                                        Es la herramienta electrónica a través de la cual las personas servidoras públicas estatales presentan sus declaraciones de situación patrimonial y de intereses.
+                                        Plataforma digital para la gestión integral de los nombramientos de los servidores públicos del Gobierno del Estado de Sonora. Este sistema permite registrar, consultar y dar seguimiento a la trayectoria de los funcionarios de manera eficiente y segura.
                                     </p>
                                 </div>
                             </div>
