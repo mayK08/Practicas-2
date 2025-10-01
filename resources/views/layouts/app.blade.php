@@ -53,10 +53,9 @@
 
                 <!-- BEGIN brand -->
                 <div class="brand">
-                    <a class="brand-logo" href="{{ url('/') }}" title="Declaranet">
-                        <img src="{{ asset('images/escudo-sonora-blanco.svg') }}" class="logo" alt="Declaranet">
-                        <h1>Declaranet</h1>
-                    </a>
+                <a class="brand-logo" href="{{ url('/') }}" title="Gobierno del Estado de Sonora">
+          <img src="{{ asset('images/escudo-sonora-blanco.svg') }}" class="logo" alt="Gobierno del Estado de Sonora" style="height: 70px; margin: 10px auto;">
+        </a>
                 </div>
                 <!-- END brand -->
 
@@ -128,13 +127,6 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border">
-                                <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                                    <span class="mdi mdi-account-circle fs-4 me-2 text-pink"></span> Mi perfil
-                                </a>
-                                <div class="dropdown-divider my-0"></div>
-                                <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                                    <i class="mdi mdi-face-agent fs-4 me-2 text-pink"></i> Soporte
-                                </a>
                                 <div class="dropdown-divider my-0"></div>
                                 <a class="dropdown-item d-flex align-items-center" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <span class="mdi mdi-exit-to-app fs-4 me-2 text-pink"></span> Salir

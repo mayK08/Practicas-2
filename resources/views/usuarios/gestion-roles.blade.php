@@ -210,13 +210,6 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border shadow">
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <span class="mdi mdi-account-circle fs-4 me-2 text-primary"></span> Mi perfil
-              </a>
-              <div class="dropdown-divider my-0"></div>
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <i class="mdi mdi-face-agent fs-4 me-2 text-primary"></i> Soporte
-              </a>
               <div class="dropdown-divider my-0"></div>
               <a class="dropdown-item d-flex align-items-center" href="{{ url('salir') }}"
                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

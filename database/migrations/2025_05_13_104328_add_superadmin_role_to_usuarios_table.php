@@ -17,7 +17,7 @@ return new class extends Migration
         if (Schema::hasTable('usuarios')) {
             // Crear un usuario SuperAdmin de ejemplo
             DB::table('usuarios')->insert([
-                'curp' => 'SUPERADMIN000000XXXXX',
+                'curp' => 'SPTJ860325HBSVZQ43',
                 'username' => 'superadmin',
                 'password_hash' => Hash::make('superadmin123'),
                 'rol' => 'SuperAdmin',

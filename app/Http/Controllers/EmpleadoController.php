@@ -175,7 +175,7 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'curp' => 'required|unique:empleados,curp',
+            'curp' => 'nullable|unique:empleados,curp',
             'apellido_paterno' => 'required',
             'apellido_materno' => 'required',
             'nombre' => 'required',
@@ -206,27 +206,27 @@ class EmpleadoController extends Controller
     /**
      * Muestra un empleado específico
      */
-    public function show($curp)
+    public function show($id)
     {
-        $empleado = Empleado::findOrFail($curp);
+        $empleado = Empleado::findOrFail($id);
         return response()->json($empleado);
     }
 
     /**
      * Muestra el formulario para editar un empleado
      */
-    public function edit($curp)
+    public function edit($id)
     {
-        $empleado = Empleado::findOrFail($curp);
+        $empleado = Empleado::findOrFail($id);
         return view('empleados.edit', compact('empleado'));
     }
 
     /**
      * Actualiza un empleado específico
      */
-    public function update(Request $request, $curp)
+    public function update(Request $request, $id)
     {
-        $empleado = Empleado::findOrFail($curp);
+        $empleado = Empleado::findOrFail($id);
 
         $validator = Validator::make($request->all(), [
             'apellido_paterno' => 'required|string|max:50',
@@ -234,7 +234,7 @@ class EmpleadoController extends Controller
             'nombre' => 'required|string|max:100',
             'anio_ingreso' => 'required|integer|min:1900|max:' . (date('Y') + 1),
             'num_expediente' => 'required|string|max:50',
-            'num_empleado' => 'required|string|max:50|unique:empleados,num_empleado,' . $curp . ',curp',
+            'num_empleado' => 'required|string|max:50|unique:empleados,num_empleado,' . $id,
             'puesto' => 'required|string|max:100',
             'adscripcion' => 'required|string|max:100',
             'dependencia' => 'required|string|max:100',
@@ -265,9 +265,9 @@ class EmpleadoController extends Controller
     /**
      * Elimina un empleado específico
      */
-    public function destroy($curp)
+    public function destroy($id)
     {
-        $empleado = Empleado::findOrFail($curp);
+        $empleado = Empleado::findOrFail($id);
         $empleado->delete();
 
         return response()->json([
@@ -278,9 +278,8 @@ class EmpleadoController extends Controller
     /**
      * Cambia el estado de un empleado
      */
-    public function cambiarEstado($curp)
+    public function cambiarEstado(Empleado $empleado)
     {
-        $empleado = Empleado::findOrFail($curp);
         $empleado->status = $empleado->status === 'Activo' ? 'Inactivo' : 'Activo';
         $empleado->save();
 

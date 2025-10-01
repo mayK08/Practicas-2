@@ -17,7 +17,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Detalles del Empleado</h4>
                     <div>
-                        <a href="{{ route('empleados.edit', $empleado->curp) }}" class="btn btn-primary">
+                        <a href="{{ route('empleados.edit', $empleado->id) }}" class="btn btn-primary">
                             <i class="fas fa-edit"></i> Editar
                         </a>
                         <a href="{{ route('empleados.index') }}" class="btn btn-secondary">

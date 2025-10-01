@@ -38,9 +38,9 @@ Route::get('/empleados/registro', function () {
 // Ruta para procesar la solicitud de registro
 Route::post('/api/empleados/solicitud', [EmpleadoController::class, 'store'])->name('empleados.solicitud');
 
-// Ruta para la página de confirmación
+// Ruta para la página de confirmación (busca por columna curp)
 Route::get('/empleados/confirmacion/{curp}', function ($curp) {
-    $empleado = \App\Models\Empleado::findOrFail($curp);
+    $empleado = \App\Models\Empleado::where('curp', $curp)->firstOrFail();
     return view('empleados.confirmacion', compact('empleado'));
 })->name('empleados.confirmacion');
 
@@ -102,10 +102,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/recientes', [EmpleadoController::class, 'recientes'])->name('empleados.recientes');
         Route::get('/create', [EmpleadoController::class, 'create'])->name('empleados.create');
         Route::post('/', [EmpleadoController::class, 'store'])->name('empleados.store');
-        Route::get('/{curp}/edit', [EmpleadoController::class, 'edit'])->name('empleados.edit');
-        Route::put('/{curp}', [EmpleadoController::class, 'update'])->name('empleados.update');
-        Route::delete('/{curp}', [EmpleadoController::class, 'destroy'])->name('empleados.destroy');
-        Route::post('/{curp}/cambiar-estado', [EmpleadoController::class, 'cambiarEstado'])->name('empleados.cambiarEstado');
+        Route::get('/{id}/edit', [EmpleadoController::class, 'edit'])->name('empleados.edit');
+        Route::put('/{id}', [EmpleadoController::class, 'update'])->name('empleados.update');
+        Route::delete('/{id}', [EmpleadoController::class, 'destroy'])->name('empleados.destroy');
+        Route::post('/{empleado}/cambiar-estado', [EmpleadoController::class, 'cambiarEstado'])->name('empleados.cambiarEstado');
         Route::get('/exportar/excel', [EmpleadoController::class, 'exportarExcel'])->name('empleados.exportar-excel');
         Route::get('/exportar/pdf', [EmpleadoController::class, 'exportarPDF'])->name('empleados.exportar-pdf');
         Route::get('/check-data', [EmpleadoController::class, 'checkData'])->name('empleados.check-data');
@@ -113,8 +113,8 @@ Route::middleware(['auth'])->group(function () {
 
     // Rutas para solicitudes
     Route::get('/solicitudes', [SolicitudController::class, 'index'])->name('solicitudes.index');
-    Route::post('/solicitudes/{curp}/aprobar', [SolicitudController::class, 'aprobar'])->name('solicitudes.aprobar');
-    Route::post('/solicitudes/{curp}/rechazar', [SolicitudController::class, 'rechazar'])->name('solicitudes.rechazar');
+    Route::post('/solicitudes/{empleado}/aprobar', [SolicitudController::class, 'aprobar'])->name('solicitudes.aprobar');
+    Route::post('/solicitudes/{empleado}/rechazar', [SolicitudController::class, 'rechazar'])->name('solicitudes.rechazar');
 
     // Rutas para gestión de usuarios y roles
     Route::prefix('usuarios')->group(function () {

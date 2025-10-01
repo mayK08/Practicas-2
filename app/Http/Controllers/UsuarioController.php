@@ -15,8 +15,12 @@ class UsuarioController extends Controller
     public function index()
     {
         try {
-            // Obtener todos los usuarios con información del empleado relacionado
-            $usuarios = Usuario::with('empleado')->get();
+            // Obtener solo usuarios que tengan un empleado asociado y que ese empleado exista
+            $usuarios = Usuario::with('empleado')
+                ->whereHas('empleado', function($query) {
+                    $query->whereNotNull('id'); // Asegurar que el empleado existe
+                })
+                ->get();
             
             return view('usuarios.gestion-roles', compact('usuarios'));
         } catch (\Exception $e) {
@@ -147,7 +151,12 @@ class UsuarioController extends Controller
     public function getUsuarios()
     {
         try {
-            $usuarios = Usuario::with('empleado')->get();
+            // Obtener solo usuarios que tengan un empleado asociado y que ese empleado exista
+            $usuarios = Usuario::with('empleado')
+                ->whereHas('empleado', function($query) {
+                    $query->whereNotNull('id'); // Asegurar que el empleado existe
+                })
+                ->get();
             
             return response()->json([
                 'success' => true,

@@ -9,28 +9,28 @@ use Illuminate\Notifications\Notifiable;
 class Empleado extends Model
 {
     use HasFactory, Notifiable;
-    
+
     /**
      * La clave primaria asociada con la tabla.
      *
      * @var string
      */
-    protected $primaryKey = 'curp';
-    
+    protected $primaryKey = 'id'; // ahora id es la PK
+
     /**
      * Indica si la clave primaria es auto-incrementable.
      *
      * @var bool
      */
-    public $incrementing = false;
-    
+    public $incrementing = true; // id es autoincrementable
+
     /**
      * El tipo de dato de la clave primaria.
      *
      * @var string
      */
-    protected $keyType = 'string';
-    
+    protected $keyType = 'int'; // id es entero
+
     /**
      * Los atributos que son asignables en masa.
      *
@@ -55,7 +55,7 @@ class Empleado extends Model
         'solicitud_status',
         'motivo_rechazo'
     ];
-    
+
     /**
      * Los atributos que deben ser convertidos a tipos nativos.
      *
@@ -78,7 +78,7 @@ class Empleado extends Model
     {
         return $this->status === 'Activo';
     }
-    
+
     /**
      * Ruta para enviar notificaciones por correo al empleado.
      *
@@ -88,4 +88,4 @@ class Empleado extends Model
     {
         return $this->email;
     }
-} 
+}
