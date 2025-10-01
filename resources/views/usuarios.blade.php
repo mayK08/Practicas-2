@@ -201,6 +201,13 @@
         </div>
 
         <div class="menu-item">
+          <a href="{{ route('usuarios.gestion-roles') }}" class="menu-link">
+            <span class="menu-icon"><i class="mdi mdi-account-cog"></i></span>
+            <span class="menu-text">Gestión de Roles</span>
+          </a>
+        </div>
+
+        <div class="menu-item">
           <a href="{{ route('solicitudes.index') }}" class="menu-link">
             <span class="menu-icon"><i class="mdi mdi-book-clock-outline"></i></span>
             <span class="menu-text">Solicitudes</span>
@@ -461,19 +468,20 @@
                   </a>
                   <button id="btnEditar" class="btn btn-warning" disabled>
                     <i class="mdi mdi-account-edit me-1"></i> Editar
-            </button>
+                  </button>
                   <button id="btnEliminar" class="btn btn-danger" disabled>
                     <i class="mdi mdi-account-remove me-1"></i> Eliminar
-            </button>
+                  </button>
                 </div>
                 <div class="btn-group ms-2">
                   <button id="btnActivar" class="btn btn-outline-success" disabled>
                     <i class="mdi mdi-check-circle me-1"></i> Activar
-            </button>
+                  </button>
                   <button id="btnDesactivar" class="btn btn-outline-danger" disabled>
                     <i class="mdi mdi-cancel me-1"></i> Desactivar
-            </button>
-          </div>
+                  </button>
+                </div>
+
               </div>
               <div class="col-md-4 text-end">
                 <div class="btn-group">
@@ -706,6 +714,12 @@
         }
       });
     }
+
+
+
+
+
+
 
     // Función para actualizar las tarjetas de resumen
     function actualizarResumen(data) {
