@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Forzar que Laravel use siempre el dominio configurado en APP_URL
+        if (config('app.url')) {
+            URL::forceRootUrl(config('app.url'));
+        }
+
+        // Forzar esquema https en todas las URLs generadas
+        URL::forceScheme('https');
     }
 }
+
