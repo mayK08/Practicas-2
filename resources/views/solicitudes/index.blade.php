@@ -309,13 +309,7 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border shadow-sm rounded-3">
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <span class="mdi mdi-account-circle fs-4 me-2 text-pink"></span> Mi perfil
-              </a>
-              <div class="dropdown-divider my-0"></div>
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <i class="mdi mdi-face-agent fs-4 me-2 text-pink"></i> Soporte
-              </a>
+
               <div class="dropdown-divider my-0"></div>
               <a class="dropdown-item d-flex align-items-center" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <span class="mdi mdi-exit-to-app fs-4 me-2 text-pink"></span> Salir
@@ -455,10 +449,10 @@
 <!-- Templates para Kendo UI Grid -->
 <script id="accionTemplate" type="text/x-kendo-template">
   <div class="action-buttons text-center">
-    <button class="k-button k-button-solid-primary k-button-md btn-aprobar" data-item-curp="#= curp #" title="Aprobar">
+    <button class="k-button k-button-solid-primary k-button-md btn-aprobar" data-item-id="#= id #" title="Aprobar">
       <i class="mdi mdi-check"></i>
     </button>
-    <button class="k-button k-button-solid-error k-button-md ms-2 btn-rechazar" data-item-curp="#= curp #" title="Rechazar">
+    <button class="k-button k-button-solid-error k-button-md ms-2 btn-rechazar" data-item-id="#= id #" title="Rechazar">
       <i class="mdi mdi-close"></i>
     </button>
   </div>
@@ -468,7 +462,7 @@
 <script id="motivoRechazoTemplate" type="text/x-kendo-template">
   <div>
     <button class="k-button k-button-solid-primary k-button-md btn-ver-motivo" 
-            data-item-curp="#= curp #" 
+            data-item-id="#= id #" 
             data-motivo="#= motivo_rechazo #" 
             title="Ver Motivo">
       <i class="mdi mdi-comment-text-outline"></i>
@@ -501,14 +495,14 @@
   $(document).ready(function() {
     // Variables para rutas
     const baseUrl = window.location.origin;
-    const aprobarUrl = (curp) => `${baseUrl}/solicitudes/${curp}/aprobar`;
-    const rechazarUrl = (curp) => `${baseUrl}/solicitudes/${curp}/rechazar`;
+    const aprobarUrl = (id) => `${baseUrl}/solicitudes/${id}/aprobar`;
+    const rechazarUrl = (id) => `${baseUrl}/solicitudes/${id}/rechazar`;
     
     // Verificar si las rutas son accesibles
     console.log('Configuración de rutas:', { 
       baseUrl,
-      ejemploAprobarUrl: aprobarUrl('EJEMPLO'),
-      ejemploRechazarUrl: rechazarUrl('EJEMPLO')
+      ejemploAprobarUrl: aprobarUrl('123'),
+      ejemploRechazarUrl: rechazarUrl('123')
     });
 
     // Configuración común para las grids
@@ -556,8 +550,9 @@
         data: @json($solicitudesPendientes),
         schema: {
           model: {
-            id: "curp",
+            id: "id",
             fields: {
+              id: { type: "number" },
               curp: { type: "string" },
               nombre_completo: { type: "string" },
               num_empleado: { type: "string" },
@@ -635,33 +630,33 @@
         var rows = grid.tbody.find("tr");
         rows.each(function(index) {
           var dataItem = grid.dataItem(this);
-          if (!dataItem || !dataItem.curp) return;
+          if (!dataItem || !dataItem.id) return;
           
-          var curp = dataItem.curp;
-          console.log("Configurando botones para la fila con CURP:", curp);
+          var id = dataItem.id;
+          console.log("Configurando botones para la fila con ID:", id);
           
           // Buscar botones dentro de esta fila
           var btnAprobar = $(this).find(".btn-aprobar");
           var btnRechazar = $(this).find(".btn-rechazar");
           
-          // Asignar el CURP como atributo data
-          btnAprobar.attr("data-item-curp", curp);
-          btnRechazar.attr("data-item-curp", curp);
+          // Asignar el ID como atributo data
+          btnAprobar.attr("data-item-id", id);
+          btnRechazar.attr("data-item-id", id);
           
           // Configurar manejadores de eventos
           btnAprobar.off("click").on("click", function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log("Clic en aprobar para CURP:", curp);
-            aprobarSolicitud(curp);
+            console.log("Clic en aprobar para ID:", id);
+            aprobarSolicitud(id);
             return false;
           });
           
           btnRechazar.off("click").on("click", function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log("Clic en rechazar para CURP:", curp);
-            rechazarSolicitud(curp);
+            console.log("Clic en rechazar para ID:", id);
+            rechazarSolicitud(id);
             return false;
           });
         });
@@ -675,8 +670,9 @@
         data: @json($solicitudesAceptadas),
         schema: {
           model: {
-            id: "curp",
+            id: "id",
             fields: {
+              id: { type: "number" },
               curp: { type: "string" },
               nombre_completo: { type: "string" },
               num_empleado: { type: "string" },
@@ -781,33 +777,33 @@
         var rows = grid.tbody.find("tr");
         rows.each(function(index) {
           var dataItem = grid.dataItem(this);
-          if (!dataItem || !dataItem.curp) return;
+          if (!dataItem || !dataItem.id) return;
           
-          var curp = dataItem.curp;
-          console.log("Configurando botones para la fila con CURP:", curp);
+          var id = dataItem.id;
+          console.log("Configurando botones para la fila con ID:", id);
           
           // Buscar botones dentro de esta fila
           var btnAprobar = $(this).find(".btn-aprobar");
           var btnRechazar = $(this).find(".btn-rechazar");
           
-          // Asignar el CURP como atributo data
-          btnAprobar.attr("data-item-curp", curp);
-          btnRechazar.attr("data-item-curp", curp);
+          // Asignar el ID como atributo data
+          btnAprobar.attr("data-item-id", id);
+          btnRechazar.attr("data-item-id", id);
           
           // Configurar manejadores de eventos
           btnAprobar.off("click").on("click", function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log("Clic en aprobar para CURP:", curp);
-            aprobarSolicitud(curp);
+            console.log("Clic en aprobar para ID:", id);
+            aprobarSolicitud(id);
             return false;
           });
           
           btnRechazar.off("click").on("click", function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log("Clic en rechazar para CURP:", curp);
-            rechazarSolicitud(curp);
+            console.log("Clic en rechazar para ID:", id);
+            rechazarSolicitud(id);
             return false;
           });
         });
@@ -821,8 +817,9 @@
         data: @json($solicitudesRechazadas),
         schema: {
           model: {
-            id: "curp",
+            id: "id",
             fields: {
+              id: { type: "number" },
               curp: { type: "string" },
               nombre_completo: { type: "string" },
               num_empleado: { type: "string" },
@@ -900,30 +897,30 @@
         var rows = grid.tbody.find("tr");
         rows.each(function(index) {
           var dataItem = grid.dataItem(this);
-          if (!dataItem || !dataItem.curp) return;
+          if (!dataItem || !dataItem.id) return;
           
-          var curp = dataItem.curp;
+          var id = dataItem.id;
           var motivo = dataItem.motivo_rechazo || "No se especificó motivo";
-          console.log("Configurando botón ver motivo para la fila con CURP:", curp);
+          console.log("Configurando botón ver motivo para la fila con ID:", id);
           
           // Buscar botón dentro de esta fila
           var btnVerMotivo = $(this).find(".btn-ver-motivo");
           
           // Asignar datos como atributos
-          btnVerMotivo.attr("data-curp", curp);
+          btnVerMotivo.attr("data-id", id);
           btnVerMotivo.attr("data-motivo", motivo);
           
           // Configurar manejadores de eventos
           btnVerMotivo.off("click").on("click", function(e) {
             e.preventDefault();
             e.stopPropagation();
-            console.log("Mostrando motivo para CURP:", curp);
+            console.log("Mostrando motivo para ID:", id);
             
             Swal.fire({
               title: 'Motivo del Rechazo',
               html: `
                 <div class="text-start fs-6">
-                  <p><strong>CURP:</strong> ${curp}</p>
+                  <p><strong>CURP:</strong> ${dataItem.curp || 'No disponible'}</p>
                   <p><strong>Nombre:</strong> ${dataItem.apellido_paterno} ${dataItem.apellido_materno} ${dataItem.nombre}</p>
                   <p><strong>Fecha Rechazo:</strong> ${kendo.toString(dataItem.updated_at, "dd/MM/yyyy")}</p>
                   <hr>
@@ -949,12 +946,12 @@
     window.rechazarSolicitud = rechazarSolicitud;
 
     // Función para aprobar solicitud
-    function aprobarSolicitud(curp) {
-      if (!curp || curp.length === 0) {
-        console.error('Error: CURP no válido', curp);
+    function aprobarSolicitud(id) {
+      if (!id) {
+        console.error('Error: ID no válido', id);
         Swal.fire({
           title: 'Error',
-          text: 'CURP no válido o vacío. Por favor, refresque la página e intente nuevamente.',
+          text: 'ID no válido o vacío. Por favor, refresque la página e intente nuevamente.',
           icon: 'error',
           confirmButtonColor: '#EF4444'
         });
@@ -962,11 +959,9 @@
       }
       
       // Depuración extra para identificar el problema
-      console.log("TIPO CURP:", typeof curp);
-      console.log("LONGITUD CURP:", curp.length);
-      console.log("CARACTERES CURP:", Array.from(curp).map(c => c.charCodeAt(0)));
+      console.log("ID:", id);
 
-      console.log("Iniciando aprobación de solicitud con CURP:", curp);
+      console.log("Iniciando aprobación de solicitud con ID:", id);
       Swal.fire({
         title: '¿Estás seguro?',
         text: "¿Deseas aprobar esta solicitud?",
@@ -1011,14 +1006,14 @@
           }
 
           $.ajax({
-            url: aprobarUrl(curp),
+            url: aprobarUrl(id),
             type: "POST",
             headers: {
               'X-CSRF-TOKEN': token
             },
             dataType: 'json',
             beforeSend: function() {
-              console.log(`Enviando solicitud de aprobación a: ${aprobarUrl(curp)}`);
+              console.log(`Enviando solicitud de aprobación a: ${aprobarUrl(id)}`);
             },
             success: function(response) {
               console.log("Respuesta exitosa:", response);
@@ -1067,19 +1062,19 @@
     }
 
     // Función para rechazar solicitud
-    function rechazarSolicitud(curp) {
-      if (!curp || curp.length === 0) {
-        console.error('Error: CURP no válido', curp);
+    function rechazarSolicitud(id) {
+      if (!id) {
+        console.error('Error: ID no válido', id);
         Swal.fire({
           title: 'Error',
-          text: 'CURP no válido o vacío. Por favor, refresque la página e intente nuevamente.',
+          text: 'ID no válido o vacío. Por favor, refresque la página e intente nuevamente.',
           icon: 'error',
           confirmButtonColor: '#EF4444'
         });
         return;
       }
 
-      console.log("Iniciando rechazo de solicitud con CURP:", curp);
+      console.log("Iniciando rechazo de solicitud con ID:", id);
       Swal.fire({
         title: '¿Estás seguro?',
         text: "¿Deseas rechazar esta solicitud?",
@@ -1141,7 +1136,7 @@
               });
               
               $.ajax({
-                url: rechazarUrl(curp),
+                url: rechazarUrl(id),
                 type: "POST",
                 data: {
                   motivo: motivo
@@ -1151,7 +1146,7 @@
                 },
                 dataType: 'json',
                 beforeSend: function() {
-                  console.log(`Enviando solicitud de rechazo a: ${rechazarUrl(curp)}`);
+                  console.log(`Enviando solicitud de rechazo a: ${rechazarUrl(id)}`);
                 },
                 success: function(response) {
                   console.log("Respuesta exitosa:", response);

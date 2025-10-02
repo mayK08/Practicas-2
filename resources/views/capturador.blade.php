@@ -63,7 +63,6 @@
         </button>
       </div>
 
-
       <!-- BEGIN brand -->
       <div class="brand">
         <a class="brand-logo" href="{{ url('/') }}" title="Gobierno del Estado de Sonora">
@@ -71,12 +70,6 @@
         </a>
       </div>
       <!-- END brand -->
-
-
-
-
-
-
 
       <!-- BEGIN menu -->
       <div class="menu">
@@ -162,17 +155,6 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border">
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <span class="mdi mdi-account-circle fs-4 me-2 text-pink"></span> Mi perfil
-              </a>
-              <div class="dropdown-divider my-0"></div>
-
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <i class="mdi mdi-face-agent fs-4 me-2 text-pink"></i> Soporte
-              </a>
-              <div class="dropdown-divider my-0"></div>
-
-
 
 
               <a class="dropdown-item d-flex align-items-center" href="{{ url('salir') }}"

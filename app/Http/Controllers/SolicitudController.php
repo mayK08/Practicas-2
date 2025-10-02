@@ -16,40 +16,35 @@ class SolicitudController extends Controller
     public function index()
     {
         $solicitudesPendientes = Empleado::where('solicitud_status', 'Pendiente')
-            ->select('curp', 'apellido_paterno', 'apellido_materno', 'nombre', 'num_empleado', 'puesto', 'dependencia', 'created_at', 'solicitud_status')
+            ->select('id', 'curp', 'apellido_paterno', 'apellido_materno', 'nombre', 'num_empleado', 'puesto', 'dependencia', 'created_at', 'solicitud_status')
             ->get();
             
         $solicitudesAceptadas = Empleado::where('solicitud_status', 'Aprobada')
-            ->select('curp', 'apellido_paterno', 'apellido_materno', 'nombre', 'num_empleado', 'puesto', 'dependencia', 'updated_at', 'solicitud_status')
+            ->select('id', 'curp', 'apellido_paterno', 'apellido_materno', 'nombre', 'num_empleado', 'puesto', 'dependencia', 'updated_at', 'solicitud_status')
             ->get();
         
         $solicitudesRechazadas = Empleado::where('solicitud_status', 'Rechazada')
-            ->select('curp', 'apellido_paterno', 'apellido_materno', 'nombre', 'num_empleado', 'puesto', 'dependencia', 'updated_at', 'solicitud_status', 'motivo_rechazo')
+            ->select('id', 'curp', 'apellido_paterno', 'apellido_materno', 'nombre', 'num_empleado', 'puesto', 'dependencia', 'updated_at', 'solicitud_status', 'motivo_rechazo')
             ->get();
         
         return view('solicitudes.index', compact('solicitudesPendientes', 'solicitudesAceptadas', 'solicitudesRechazadas'));
     }
 
-    public function aprobar($curp)
+    public function aprobar(Empleado $empleado)
     {
         try {
-            Log::info('Iniciando aprobación de solicitud con CURP: ' . $curp);
-            
-            // Verificar si el empleado existe
-            $empleado = Empleado::where('curp', $curp)->first();
-            
-            if (!$empleado) {
-                Log::error('No se encontró empleado con CURP: ' . $curp);
-                return response()->json([
-                    'success' => false,
-                    'message' => 'No se encontró el empleado con CURP: ' . $curp
-                ], 404);
-            }
+            Log::info('Iniciando aprobación de solicitud con ID: ' . $empleado->id);
             
             // Verificar si ya existe un usuario para este empleado
-            $usuarioExistente = Usuario::where('curp', $curp)->first();
+            // Si CURP es nulo, validar por email para evitar duplicados
+            $usuarioExistente = $empleado->curp
+                ? Usuario::where('curp', $empleado->curp)->first()
+                : Usuario::where('email', $empleado->email)->first();
             if ($usuarioExistente) {
-                Log::warning('Ya existe un usuario para el CURP: ' . $curp);
+                Log::warning('Ya existe un usuario para el empleado', [
+                    'curp' => $empleado->curp,
+                    'email' => $empleado->email
+                ]);
                 return response()->json([
                     'success' => false,
                     'message' => 'Ya existe un usuario para este empleado'
@@ -61,14 +56,14 @@ class SolicitudController extends Controller
             
             // Crear el usuario en la tabla usuarios
             $usuario = Usuario::create([
-                'curp' => $empleado->curp,
+                'curp' => $empleado->curp, // puede ser null si no fue capturada
                 'username' => $empleado->nombre . ' ' . $empleado->apellido_paterno,
                 'email' => $empleado->email,
                 'password_hash' => Hash::make($password),
                 'rol' => 'capturador', // Rol por defecto
             ]);
             
-            Log::info('Usuario creado exitosamente para CURP: ' . $curp . ' con contraseña: ' . $password);
+            Log::info('Usuario creado exitosamente para CURP: ' . $empleado->curp . ' con contraseña: ' . $password);
             
             // Actualizar el empleado
             $empleado->solicitud_status = 'Aprobada';
@@ -81,14 +76,14 @@ class SolicitudController extends Controller
                 Log::info('Notificación de aprobación enviada a: ' . $empleado->email);
             } catch (\Exception $emailError) {
                 Log::error('Error al enviar correo de aprobación: ' . $emailError->getMessage(), [
-                    'curp' => $curp,
+                    'id' => $empleado->id,
                     'email' => $empleado->email,
                     'exception' => $emailError
                 ]);
                 // No devolvemos error al usuario si falla el correo, la solicitud ya fue aprobada
             }
             
-            Log::info('Solicitud aprobada exitosamente para CURP: ' . $curp);
+            Log::info('Solicitud aprobada exitosamente para ID: ' . $empleado->id);
 
             return response()->json([
                 'success' => true,
@@ -97,7 +92,7 @@ class SolicitudController extends Controller
             ]);
         } catch (\Exception $e) {
             Log::error('Error al aprobar solicitud: ' . $e->getMessage(), [
-                'curp' => $curp,
+                'id' => $empleado->id ?? null,
                 'exception' => $e
             ]);
             return response()->json([
@@ -107,23 +102,12 @@ class SolicitudController extends Controller
         }
     }
 
-    public function rechazar(Request $request, $curp)
+    public function rechazar(Request $request, Empleado $empleado)
     {
         try {
-            Log::info('Iniciando rechazo de solicitud con CURP: ' . $curp, [
+            Log::info('Iniciando rechazo de solicitud con ID: ' . $empleado->id, [
                 'motivo' => $request->input('motivo')
             ]);
-            
-            // Verificar si el empleado existe
-            $empleado = Empleado::where('curp', $curp)->first();
-            
-            if (!$empleado) {
-                Log::error('No se encontró empleado con CURP: ' . $curp);
-                return response()->json([
-                    'success' => false,
-                    'message' => 'No se encontró el empleado con CURP: ' . $curp
-                ], 404);
-            }
             
             $motivo = $request->input('motivo', 'No se especificó un motivo');
             
@@ -137,14 +121,14 @@ class SolicitudController extends Controller
                 Log::info('Notificación de rechazo enviada a: ' . $empleado->email);
             } catch (\Exception $emailError) {
                 Log::error('Error al enviar correo de rechazo: ' . $emailError->getMessage(), [
-                    'curp' => $curp,
+                    'id' => $empleado->id,
                     'email' => $empleado->email,
                     'exception' => $emailError
                 ]);
                 // No devolvemos error al usuario si falla el correo, la solicitud ya fue rechazada
             }
             
-            Log::info('Solicitud rechazada exitosamente para CURP: ' . $curp);
+            Log::info('Solicitud rechazada exitosamente para ID: ' . $empleado->id);
 
             return response()->json([
                 'success' => true,
@@ -152,7 +136,7 @@ class SolicitudController extends Controller
             ]);
         } catch (\Exception $e) {
             Log::error('Error al rechazar solicitud: ' . $e->getMessage(), [
-                'curp' => $curp,
+                'id' => $empleado->id ?? null,
                 'motivo' => $request->input('motivo'),
                 'exception' => $e
             ]);

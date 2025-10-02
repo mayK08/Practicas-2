@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form id="empleadoForm" method="POST" action="{{ route('empleados.update', $empleado->curp) }}" enctype="multipart/form-data">
+                    <form id="empleadoForm" method="POST" action="{{ route('empleados.update', $empleado->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -40,7 +40,8 @@
                             <div class="col-md-4">
                                 <label for="apellido_paterno" class="form-label">Apellido Paterno</label>
                                 <input type="text" class="form-control @error('apellido_paterno') is-invalid @enderror" 
-                                       id="apellido_paterno" name="apellido_paterno" value="{{ old('apellido_paterno', $empleado->apellido_paterno) }}" required>
+                                       id="apellido_paterno" name="apellido_paterno" value="{{ old('apellido_paterno', $empleado->apellido_paterno) }}" 
+                                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required>
                                 @error('apellido_paterno')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -49,7 +50,8 @@
                             <div class="col-md-4">
                                 <label for="apellido_materno" class="form-label">Apellido Materno</label>
                                 <input type="text" class="form-control @error('apellido_materno') is-invalid @enderror" 
-                                       id="apellido_materno" name="apellido_materno" value="{{ old('apellido_materno', $empleado->apellido_materno) }}" required>
+                                       id="apellido_materno" name="apellido_materno" value="{{ old('apellido_materno', $empleado->apellido_materno) }}" 
+                                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required>
                                 @error('apellido_materno')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -60,7 +62,8 @@
                             <div class="col-md-4">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control @error('nombre') is-invalid @enderror" 
-                                       id="nombre" name="nombre" value="{{ old('nombre', $empleado->nombre) }}" required>
+                                       id="nombre" name="nombre" value="{{ old('nombre', $empleado->nombre) }}" 
+                                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required>
                                 @error('nombre')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -69,7 +72,8 @@
                             <div class="col-md-4">
                                 <label for="num_empleado" class="form-label">Número de Empleado</label>
                                 <input type="text" class="form-control @error('num_empleado') is-invalid @enderror" 
-                                       id="num_empleado" name="num_empleado" value="{{ old('num_empleado', $empleado->num_empleado) }}" required>
+                                       id="num_empleado" name="num_empleado" value="{{ old('num_empleado', $empleado->num_empleado) }}" 
+                                       pattern="[0-9]+" title="Solo se permiten números" required>
                                 @error('num_empleado')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -78,7 +82,8 @@
                             <div class="col-md-4">
                                 <label for="num_expediente" class="form-label">Número de Expediente</label>
                                 <input type="text" class="form-control @error('num_expediente') is-invalid @enderror" 
-                                       id="num_expediente" name="num_expediente" value="{{ old('num_expediente', $empleado->num_expediente) }}" required>
+                                       id="num_expediente" name="num_expediente" value="{{ old('num_expediente', $empleado->num_expediente) }}" 
+                                       pattern="[0-9]+" title="Solo se permiten números" required>
                                 @error('num_expediente')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -89,7 +94,8 @@
                             <div class="col-md-4">
                                 <label for="puesto" class="form-label">Puesto</label>
                                 <input type="text" class="form-control @error('puesto') is-invalid @enderror" 
-                                       id="puesto" name="puesto" value="{{ old('puesto', $empleado->puesto) }}" required>
+                                       id="puesto" name="puesto" value="{{ old('puesto', $empleado->puesto) }}" 
+                                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required>
                                 @error('puesto')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -98,7 +104,8 @@
                             <div class="col-md-4">
                                 <label for="adscripcion" class="form-label">Adscripción</label>
                                 <input type="text" class="form-control @error('adscripcion') is-invalid @enderror" 
-                                       id="adscripcion" name="adscripcion" value="{{ old('adscripcion', $empleado->adscripcion) }}" required>
+                                       id="adscripcion" name="adscripcion" value="{{ old('adscripcion', $empleado->adscripcion) }}" 
+                                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required>
                                 @error('adscripcion')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -107,7 +114,8 @@
                             <div class="col-md-4">
                                 <label for="dependencia" class="form-label">Dependencia</label>
                                 <input type="text" class="form-control @error('dependencia') is-invalid @enderror" 
-                                       id="dependencia" name="dependencia" value="{{ old('dependencia', $empleado->dependencia) }}" required>
+                                       id="dependencia" name="dependencia" value="{{ old('dependencia', $empleado->dependencia) }}" 
+                                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required>
                                 @error('dependencia')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -118,7 +126,8 @@
                             <div class="col-md-4">
                                 <label for="ciudad" class="form-label">Ciudad</label>
                                 <input type="text" class="form-control @error('ciudad') is-invalid @enderror" 
-                                       id="ciudad" name="ciudad" value="{{ old('ciudad', $empleado->ciudad) }}" required>
+                                       id="ciudad" name="ciudad" value="{{ old('ciudad', $empleado->ciudad) }}" 
+                                       pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required>
                                 @error('ciudad')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -136,7 +145,8 @@
                             <div class="col-md-4">
                                 <label for="telefono" class="form-label">Teléfono</label>
                                 <input type="text" class="form-control @error('telefono') is-invalid @enderror" 
-                                       id="telefono" name="telefono" value="{{ old('telefono', $empleado->telefono) }}" required>
+                                       id="telefono" name="telefono" value="{{ old('telefono', $empleado->telefono) }}" 
+                                       pattern="[0-9\s\-\(\)\+]+" title="Solo se permiten números, espacios, guiones, paréntesis y el signo +" required>
                                 @error('telefono')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

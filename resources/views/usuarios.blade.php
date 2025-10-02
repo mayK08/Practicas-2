@@ -283,16 +283,6 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end me-lg-3 py-0 border shadow">
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <span class="mdi mdi-account-circle fs-4 me-2 text-primary"></span> Mi perfil
-              </a>
-              <div class="dropdown-divider my-0"></div>
-
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('perfil') }}">
-                <i class="mdi mdi-face-agent fs-4 me-2 text-primary"></i> Soporte
-              </a>
-              <div class="dropdown-divider my-0"></div>
-
               <a class="dropdown-item d-flex align-items-center" href="{{ url('salir') }}"
                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <span class="mdi mdi-exit-to-app fs-4 me-2 text-primary"></span> Salir
@@ -622,7 +612,7 @@
     // Manejar clic en el botón editar
     $("#btnEditar").on("click", function() {
       if (empleadoSeleccionado) {
-        window.location.href = "{{ url('empleados') }}/" + empleadoSeleccionado.curp + "/edit";
+        window.location.href = "{{ url('empleados') }}/" + empleadoSeleccionado.id + "/edit";
       }
     });
 
@@ -641,7 +631,7 @@
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-              url: "{{ route('empleados.destroy', '') }}/" + empleadoSeleccionado.curp,
+              url: "{{ route('empleados.destroy', '') }}/" + empleadoSeleccionado.id,
               type: "DELETE",
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -672,23 +662,23 @@
     // Manejar clic en el botón activar
     $("#btnActivar").on("click", function() {
       if (empleadoSeleccionado) {
-        cambiarEstado(empleadoSeleccionado.curp, 'Activo');
+        cambiarEstado(empleadoSeleccionado.id, 'Activo');
       }
     });
 
     // Manejar clic en el botón desactivar
     $("#btnDesactivar").on("click", function() {
       if (empleadoSeleccionado) {
-        cambiarEstado(empleadoSeleccionado.curp, 'Inactivo');
+        cambiarEstado(empleadoSeleccionado.id, 'Inactivo');
       }
     });
 
     // Función para cambiar el estado del empleado
-    function cambiarEstado(curp, nuevoEstado) {
-      console.log('Cambiando estado del empleado:', { curp, nuevoEstado });
+    function cambiarEstado(id, nuevoEstado) {
+      console.log('Cambiando estado del empleado:', { id, nuevoEstado });
       
       $.ajax({
-        url: "{{ url('empleados') }}/" + curp + "/cambiar-estado",
+        url: "{{ url('empleados') }}/" + id + "/cambiar-estado",
         type: "POST",
         data: { status: nuevoEstado },
         headers: {
@@ -882,7 +872,7 @@
         // Cuerpo de la tabla
         html += '<tbody>';
         for (let i = 0; i < datos.length; i++) {
-          html += '<tr data-curp="' + (datos[i].curp || 'no-curp-' + i) + '">';
+          html += '<tr data-id="' + (datos[i].id || i) + '">';
           
           // Mostrar solo los campos seleccionados, en el mismo orden
           for (let j = 0; j < camposMostrar.length; j++) {
@@ -947,11 +937,11 @@
           // Añadir la clase seleccionada a esta fila
           $(this).addClass('row-selected');
           
-          // Obtener el CURP del empleado seleccionado
-          const curp = $(this).data('curp');
+          // Obtener el ID del empleado seleccionado
+          const id = $(this).data('id');
           
-          // Buscar el empleado en los datos
-          const empleado = datos.find(e => e.curp === curp);
+          // Buscar el empleado en los datos por ID
+          const empleado = datos.find(e => e.id == id);
           
           if (empleado) {
             // Establecer el empleado seleccionado
@@ -1265,7 +1255,7 @@
               }
               
               if (datos.length > 0) {
-                // Filtrar por la CURP
+                // Filtrar por la CURP (mantener funcionalidad de búsqueda por CURP)
                 const empleadosFiltrados = datos.filter(e => e.curp && e.curp.toUpperCase().includes(parametrosURL.curp.toUpperCase()));
                 
                 if (empleadosFiltrados.length > 0) {

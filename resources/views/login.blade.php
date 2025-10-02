@@ -61,9 +61,9 @@
                             <div class="row my-auto justify-content-center mb-0 mb-sm-5 mb-md-3 ">
                                 <div class="col-12 col-sm-8 col-md-10 text-center">
                                     <!-- <h1 class="text-uppercase">Declaranet</h1> -->
-                                    <h2 class="mb-3">SISTEMA DE NOMBRAMIENTOS</h2>
+                                    <h2 class="mb-3">Sistema de Nombramientos</h2>
                                     <p class="">
-                                        Plataforma digital para la gestión integral de los nombramientos de los servidores públicos del Gobierno del Estado de Sonora. Este sistema permite registrar, consultar y dar seguimiento a la trayectoria de los funcionarios de manera eficiente y segura.
+                                    Plataforma digital para la gestión integral de los nombramientos de los servidores públicos del Gobierno del Estado de Sonora. Este sistema permite registrar, consultar y dar seguimiento a la trayectoria de los funcionarios de manera eficiente y segura
                                     </p>
                                 </div>
                             </div>
@@ -145,8 +145,8 @@
                                     </button>
                                 </div>
                             </form>
-                            <p class="text-center text-white mt-5 mb-5 mb-sm-0">¿No tienes una cuenta? <a class="link-warning" href="{{ route('empleados.registro') }}" title="registrar">Regístrate</a>
-                            </p>
+                            <!-- <p class="text-center text-white mt-5 mb-5 mb-sm-0">¿No tienes una cuenta? <a class="link-warning" href="{{ route('empleados.registro') }}" title="registrar">Regístrate</a>
+                            </p> -->
                             <div class="d-sm-none w-50 m-auto d-block text-center">
                                 <a class="" href="https://www.sonora.gob.mx" title="">
                                     <img src="{{ asset('images/logo-sonora-white.svg') }}" class="" alt="Gobierno del Estado de Sonora">
